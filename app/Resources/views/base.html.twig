@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <nav class="navbar-expand navbar bg-light">
+            <a class="navbar-brand">Happy Meat</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+            </ul>
+            <div class="navbar-collapse collapse d-flex flex-row-reverse">
+                <div class="d-flex flex-column">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Sign in</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Connect</a>
+                        </li>
+                    </ul>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="search"><i class="glyphicon glyphicon-search"></i></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-12">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/jquery-3.3.1.js') }}"></script>
+            <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
