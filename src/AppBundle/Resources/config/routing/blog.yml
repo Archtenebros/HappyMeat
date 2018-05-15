@@ -1,0 +1,9 @@
+blog_details:
+  path: "{id}"
+  controller: AppBundle:Blog:showDetails
+  requirements:
+    id: '\d+'
+
+blog:
+  path: ""
+  controller: AppBundle:Blog:show

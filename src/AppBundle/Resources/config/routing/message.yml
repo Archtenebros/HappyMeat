@@ -1,0 +1,9 @@
+message_discuss:
+  path: discuss/{id}
+  controller: AppBundle:Message:discuss
+  requirements:
+    id: '\d+'
+
+message_all:
+  path: ""
+  controller: AppBundle:Message:all

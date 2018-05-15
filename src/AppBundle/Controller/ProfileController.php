@@ -30,4 +30,9 @@ class ProfileController extends Controller
     {
         return $this->render('@App/profile/stream.html.twig', array());
     }
+
+    public function myproductsAction()
+    {
+        return $this->$this->render('@App/profile/myproducts.html.twig', array());
+    }
 }

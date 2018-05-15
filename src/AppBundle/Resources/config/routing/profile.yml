@@ -1,0 +1,35 @@
+profile_details:
+  path: {id}
+  controller: AppBundle:Profile:show
+  requirements:
+    id: '\d+'
+
+profile_information:
+  path: "{id}/information"
+  controller: AppBundle:Profile:information
+  requirements:
+    id: '\d+'
+
+profile_photos:
+  path: "{id}/photos"
+  controller: AppBundle:Profile:photos
+  requirements:
+    id: '\d+'
+
+profile_posts:
+  path: "{id}/posts"
+  controller: AppBundle:Profile:posts
+  requirements:
+    id: '\d+'
+
+profile_stream:
+  path: "{id}/stream"
+  controller: AppBundle:Profile:stream
+  requirements:
+    id: '\d+'
+
+profile_myproducts:
+  path: "{id}/myproducts"
+  controller: AppBundle:Profile:myproducts
+  requirements:
+    id: '\d+'

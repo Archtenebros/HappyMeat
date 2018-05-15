@@ -1,0 +1,21 @@
+explore_aboutus:
+  path: aboutus/
+  controller: AppBundle:Explore:aboutUs
+
+explore_newsletter:
+  path: newsletter/
+  controller: AppBundle:Explore:newsletter
+
+explore_organicfarming:
+  path: organicfarming/
+  controller: AppBundle:Explore:organicFarming
+
+explore_recipe_details:
+  path: recipe/{id}
+  controller: AppBundle:Explore:recipeShowDetails
+  requirements:
+    id: '\d+'
+
+explore_recipe:
+  path: recipe/
+  controller: AppBundle:Explore:recipeShow

@@ -1,0 +1,3 @@
+favorite:
+  path: ""
+  controller: AppBundle:Favorite:all

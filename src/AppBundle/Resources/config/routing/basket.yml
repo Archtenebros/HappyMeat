@@ -1,0 +1,7 @@
+basket:
+  path: ""
+  controller: "AppBundle:Basket:all"
+
+basket_pay:
+  path: "pay/"
+  controller: "AppBundle:Basket:pay"

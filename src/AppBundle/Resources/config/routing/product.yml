@@ -1,0 +1,10 @@
+product_details:
+  path: {id}
+  controller: AppBundle:Product:showDetails
+  requirements:
+    id: '\d+'
+
+product_all:
+  path: ""
+  controller: AppBundle:Product:show
+
