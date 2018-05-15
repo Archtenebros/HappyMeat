@@ -1,5 +1,5 @@
 profile_details:
-  path: {id}
+  path: "{id}"
   controller: AppBundle:Profile:show
   requirements:
     id: '\d+'

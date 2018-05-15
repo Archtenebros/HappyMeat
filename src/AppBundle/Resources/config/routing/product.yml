@@ -1,5 +1,5 @@
 product_details:
-  path: {id}
+  path: "{id}"
   controller: AppBundle:Product:showDetails
   requirements:
     id: '\d+'
