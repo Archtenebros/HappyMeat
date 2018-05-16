@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,11 +22,19 @@ class Recipe extends Article
     private $typeAnimal;
 
     /**
+     * @var ArrayCollection of Ingredient
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Ingredient", mappedBy="recipe", cascade={"persist", "remove"})
+     */
+    private $ingredients;
+
+    /**
      * Recipe constructor.
      */
     public function __construct()
     {
         parent::__construct();
+        $this->ingredients = new ArrayCollection();
     }
 
     /**
