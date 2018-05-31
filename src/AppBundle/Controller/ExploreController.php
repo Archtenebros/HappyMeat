@@ -8,12 +8,16 @@ class ExploreController extends Controller
 {
     public function recipeShowAction()
     {
-        return $this->render('@App/explore/recipe/show.html.twig', array());
+        return $this->render('@App/explore/recipe/show.html.twig', array(
+            "recipes" => $this->getDoctrine()->getRepository("AppBundle:Recipe")->findAll(),
+        ));
     }
 
-    public function recipeShowDetailsAction()
+    public function recipeShowDetailsAction($id)
     {
-        return $this->render('@App/explore/recipe/showdetails.html.twig', array());
+        return $this->render('@App/explore/recipe/showdetails.html.twig', array(
+            "recipe" => $this->getDoctrine()->getRepository("AppBundle:Recipe")->find($id),
+        ));
     }
 
     public function aboutUsAction()
@@ -23,7 +27,9 @@ class ExploreController extends Controller
 
     public function newsletterAction()
     {
-        return $this->render('@App/explore/newsletter.html.twig', array());
+        return $this->render('@App/explore/newsletter.html.twig', array(
+            "news" => $this->getDoctrine()->getRepository("AppBundle:News")->findAll(),
+        ));
     }
 
     public function organicFarmingAction()
