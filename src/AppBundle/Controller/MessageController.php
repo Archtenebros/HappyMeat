@@ -13,6 +13,7 @@ class MessageController extends Controller
 
     public function discussAction()
     {
+        //TODO addMessageHandler
         return $this->render('@App/message/discuss.html.twig', array());
     }
 }

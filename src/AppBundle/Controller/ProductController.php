@@ -8,7 +8,7 @@ class ProductController extends Controller
 {
     public function showAction()
     {
-        //TODO Search Form
+        //TODO SearchHandler
         //Temporary return
         $products = $this->getDoctrine()->getRepository("AppBundle:Animal")->findAll();
         return $this->render('@App/product/show.html.twig', array(
