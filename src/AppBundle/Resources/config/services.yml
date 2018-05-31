@@ -1,0 +1,21 @@
+parameters:
+  animal.add.type.class: AppBundle\Form\Form\AnimalType
+  animal.add.handler.class: AppBundle\Form\Handler\AddAnimalHandler
+  symfony.form.class: Symfony\Component\Form\Form
+
+services:
+  animal.add.form:
+    factory: form.factory
+    class: '%symfony.form.class%'
+    arguments:
+      - animal
+      - animal.form
+
+  animal.add.type:
+    class: '%animal.add.type.class%'
+    tags: { name: form.type, alias: animal.form }
+
+  animal.add.handler:
+    class: '%animal.add.handler.class%'
+    arguments: ['@animal.add.form', '@request_stack', '@doctrine.orm.entity_manager']
+    scope: request

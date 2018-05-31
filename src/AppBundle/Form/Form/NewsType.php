@@ -1,26 +1,28 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PaymentBasketType extends AbstractType
+class NewsType extends ArticleType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('animals');
-    }/**
+        parent::buildForm($builder, $options);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\PaymentBasket'
+            'data_class' => 'AppBundle\Entity\News'
         ));
     }
 
@@ -29,7 +31,7 @@ class PaymentBasketType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_paymentbasket';
+        return 'appbundle_news';
     }
 
 

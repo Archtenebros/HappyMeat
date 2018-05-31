@@ -1,20 +1,27 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BlogType extends AbstractType
+class ImageType extends AbstractType
 {
-/**
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        //TODO see https://symfony.com/doc/current/controller/upload_file.html
+        $builder->add('url');
+    }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Blog'
+            'data_class' => 'AppBundle\Entity\Image'
         ));
     }
 
@@ -23,7 +30,7 @@ class BlogType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_blog';
+        return 'appbundle_image';
     }
 
 

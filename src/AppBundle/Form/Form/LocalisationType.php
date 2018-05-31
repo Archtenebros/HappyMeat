@@ -1,26 +1,20 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class YoutubeChannelType extends AbstractType
+class LocalisationType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add('url');
-    }/**
+/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\YoutubeChannel'
+            'data_class' => 'AppBundle\Entity\Localisation'
         ));
     }
 
@@ -29,7 +23,7 @@ class YoutubeChannelType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_youtubechannel';
+        return 'appbundle_localisation';
     }
 
 

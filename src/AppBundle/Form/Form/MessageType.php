@@ -1,26 +1,28 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RecipeType extends AbstractType
+class MessageType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('typeAnimal');
+        $builder->add('content', TextareaType::class);
+        //TODO add automatically date and conversation, set seen at false
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Recipe'
+            'data_class' => 'AppBundle\Entity\Message'
         ));
     }
 
@@ -29,7 +31,7 @@ class RecipeType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_recipe';
+        return 'appbundle_message';
     }
 
 

@@ -10,4 +10,9 @@ class FavoriteController extends Controller
     {
         return $this->render('@App/favorite/all.html.twig', array());
     }
+
+    public function addFavorite($request, $id)
+    {
+        //TODO add the favorite
+    }
 }

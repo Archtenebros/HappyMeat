@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form\Form\Animal;
+namespace AppBundle\Form\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AddAnimalType extends AbstractType
+class AnimalType extends ArticleType
 {
 
     /**
@@ -17,6 +17,7 @@ class AddAnimalType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        parent::buildForm($builder, $options);
         $builder->add('name', TextType::class)
                 ->add('age', NumberType::class)
                 ->add('weight', NumberType::class)
