@@ -29,7 +29,5 @@ profile_stream:
     id: '\d+'
 
 profile_myproducts:
-  path: "{id}/myproducts"
+  path: "myproducts"
   controller: AppBundle:Profile:myproducts
-  requirements:
-    id: '\d+'
