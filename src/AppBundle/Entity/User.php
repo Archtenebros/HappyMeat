@@ -47,19 +47,11 @@ class User extends BaseUser
      */
     private $paymentBasket;
 
-    /**
-     * @var ArrayCollection of Conversation
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Conversation", mappedBy="user")
-     */
-    private $conversations;
-
     public function __construct()
     {
         parent::__construct();
         $this->reviews = new ArrayCollection();
         $this->favorites = new ArrayCollection();
-        $this->conversations = new ArrayCollection();
     }
 
     /**
@@ -154,37 +146,4 @@ class User extends BaseUser
         return $this->paymentBasket;
     }
 
-    /**
-     * Add conversationsWithOwner
-     *
-     * @param \AppBundle\Entity\Conversation $conversationsWithOwner
-     *
-     * @return User
-     */
-    public function addConversations(\AppBundle\Entity\Conversation $conversationsWithOwner)
-    {
-        $this->conversations[] = $conversationsWithOwner;
-
-        return $this;
-    }
-
-    /**
-     * Remove conversationsWithOwner
-     *
-     * @param \AppBundle\Entity\Conversation $conversationsWithOwner
-     */
-    public function removeConversations(\AppBundle\Entity\Conversation $conversationsWithOwner)
-    {
-        $this->conversations>removeElement($conversationsWithOwner);
-    }
-
-    /**
-     * Get conversationsWithOwner
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getConversations()
-    {
-        return $this->conversations;
-    }
 }

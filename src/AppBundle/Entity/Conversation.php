@@ -25,14 +25,14 @@ class Conversation
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="conversations")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $user1;
 
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="conversations")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $user2;
 
