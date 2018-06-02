@@ -26,14 +26,12 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/add*, role: ROLE_USER }
-        - { path: ^/add/product$, role: ROlE_OWNER }
-        - { path: ^/add/blog$, role: ROlE_ADMIN }
-        - { path: ^/add/news$, role: ROlE_ADMIN }
-        - { path: ^/basket*, role: ROlE_USER }
-        - { path: ^/favorite*, role: ROlE_USER }
-        - { path: ^/message*, role: ROlE_USER }
+        - { path: ^/add/product$, role: ROLE_OWNER }
+        - { path: ^/add/blog$, role: ROLE_ADMIN }
+        - { path: ^/basket*, role: ROLE_USER }
+        - { path: ^/favorite*, role: ROLE_USER }
+        - { path: ^/message*, role: ROLE_USER }
         - { path: ^/modify*, role: ROLE_USER }
-        - { path: ^/modify/product$, role: ROlE_OWNER }
-        - { path: ^/modify/blog$, role: ROlE_ADMIN }
-        - { path: ^/modify/news$, role: ROlE_ADMIN }
+        - { path: ^/modify/product$, role: ROLE_OWNER }
+        - { path: ^/modify/blog$, role: ROLE_ADMIN }
         - { path: ^/profile/myproducts$, role: ROLE_OWNER }

@@ -52,9 +52,9 @@ abstract class Article
     private $content;
 
     /**
-     * @var Image
+     * @var string
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image")
+     * @ORM\Column(type="string")
      */
     private $image;
 
@@ -64,6 +64,13 @@ abstract class Article
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="article")
      */
     private $reviews;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     */
+    private $author;
 
     /**
      * Article constructor.
@@ -159,11 +166,11 @@ abstract class Article
     /**
      * Set image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param string $image
      *
      * @return Article
      */
-    public function setImage(\AppBundle\Entity\Image $image = null)
+    public function setImage($image = null)
     {
         $this->image = $image;
 
@@ -173,7 +180,7 @@ abstract class Article
     /**
      * Get image
      *
-     * @return \AppBundle\Entity\Image
+     * @return string
      */
     public function getImage()
     {
@@ -212,5 +219,29 @@ abstract class Article
     public function getReviews()
     {
         return $this->reviews;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \AppBundle\Entity\User $author
+     *
+     * @return Article
+     */
+    public function setAuthor(\AppBundle\Entity\User $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

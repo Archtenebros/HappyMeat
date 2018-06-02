@@ -2,10 +2,6 @@ add_blog:
     path: "blog/"
     controller: "AppBundle:Add:blog"
 
-add_news:
-    path: "news/"
-    controller: "AppBundle:Add:news"
-
 add_product:
     path: "product/"
     controller: "AppBundle:Add:product"

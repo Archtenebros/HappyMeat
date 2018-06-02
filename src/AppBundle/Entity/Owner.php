@@ -22,9 +22,9 @@ class Owner extends User
     private $name;
 
     /**
-     * @var Image
+     * @var string
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\Column(type="string")
      */
     private $image;
 
@@ -90,11 +90,11 @@ class Owner extends User
     /**
      * Set image
      *
-     * @param \AppBundle\Entity\Image $image
+     * @param string $image
      *
      * @return Owner
      */
-    public function setImage(\AppBundle\Entity\Image $image = null)
+    public function setImage($image = null)
     {
         $this->image = $image;
 
@@ -104,7 +104,7 @@ class Owner extends User
     /**
      * Get image
      *
-     * @return \AppBundle\Entity\Image
+     * @return string
      */
     public function getImage()
     {
