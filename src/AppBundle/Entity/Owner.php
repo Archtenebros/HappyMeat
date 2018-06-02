@@ -36,20 +36,6 @@ class Owner extends User
     private $localisation;
 
     /**
-     * @var ArrayCollection of Animal
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Animal", mappedBy="owner", cascade={"persist", "remove"})
-     */
-    private $animals;
-
-    /**
-     * @var ArrayCollection of Conversation
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Conversation", mappedBy="owner")
-     */
-    private $conversationsWithUser;
-
-    /**
      * @var YoutubeChannel
      *
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\YoutubeChannel")

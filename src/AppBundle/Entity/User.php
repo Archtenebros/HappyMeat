@@ -52,14 +52,14 @@ class User extends BaseUser
      *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Conversation", mappedBy="user")
      */
-    private $conversationsWithOwner;
+    private $conversations;
 
     public function __construct()
     {
         parent::__construct();
         $this->reviews = new ArrayCollection();
         $this->favorites = new ArrayCollection();
-        $this->conversationsWithOwner = new ArrayCollection();
+        $this->conversations = new ArrayCollection();
     }
 
     /**
@@ -161,9 +161,9 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function addConversationsWithOwner(\AppBundle\Entity\Conversation $conversationsWithOwner)
+    public function addConversations(\AppBundle\Entity\Conversation $conversationsWithOwner)
     {
-        $this->conversationsWithOwner[] = $conversationsWithOwner;
+        $this->conversations[] = $conversationsWithOwner;
 
         return $this;
     }
@@ -173,9 +173,9 @@ class User extends BaseUser
      *
      * @param \AppBundle\Entity\Conversation $conversationsWithOwner
      */
-    public function removeConversationsWithOwner(\AppBundle\Entity\Conversation $conversationsWithOwner)
+    public function removeConversations(\AppBundle\Entity\Conversation $conversationsWithOwner)
     {
-        $this->conversationsWithOwner->removeElement($conversationsWithOwner);
+        $this->conversations>removeElement($conversationsWithOwner);
     }
 
     /**
@@ -183,8 +183,8 @@ class User extends BaseUser
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getConversationsWithOwner()
+    public function getConversations()
     {
-        return $this->conversationsWithOwner;
+        return $this->conversations;
     }
 }

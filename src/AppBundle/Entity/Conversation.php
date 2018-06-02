@@ -25,16 +25,16 @@ class Conversation
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="conversationsWithOwner")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="conversations")
      */
-    private $user;
+    private $user1;
 
     /**
-     * @var Owner
+     * @var User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Owner", inversedBy="conversationsWithUser")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="conversations")
      */
-    private $owner;
+    private $user2;
 
     /**
      * @var ArrayCollection of Message
@@ -61,52 +61,54 @@ class Conversation
         $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
+
     /**
-     * Set user
+     * Set user1
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \AppBundle\Entity\User $user1
      *
      * @return Conversation
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser1(\AppBundle\Entity\User $user1 = null)
     {
-        $this->user = $user;
+        $this->user1 = $user1;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Get user1
      *
      * @return \AppBundle\Entity\User
      */
-    public function getUser()
+    public function getUser1()
     {
-        return $this->user;
+        return $this->user1;
     }
 
     /**
-     * Set owner
+     * Set user2
      *
-     * @param \AppBundle\Entity\Owner $owner
+     * @param \AppBundle\Entity\User $user2
      *
      * @return Conversation
      */
-    public function setOwner(\AppBundle\Entity\Owner $owner = null)
+    public function setUser2(\AppBundle\Entity\User $user2 = null)
     {
-        $this->owner = $owner;
+        $this->user2 = $user2;
 
         return $this;
     }
 
     /**
-     * Get owner
+     * Get user2
      *
-     * @return \AppBundle\Entity\Owner
+     * @return \AppBundle\Entity\User
      */
-    public function getOwner()
+    public function getUser2()
     {
-        return $this->owner;
+        return $this->user2;
     }
 
     /**

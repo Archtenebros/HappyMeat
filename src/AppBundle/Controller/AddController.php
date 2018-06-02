@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Animal;
 use AppBundle\Entity\Blog;
 use AppBundle\Form\AnimalType;
+use AppBundle\Form\BlogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -13,7 +15,7 @@ class AddController extends Controller
     public function blogAction(Request $request)
     {
         $blog = new Blog();
-        $form = $this->createForm(AnimalType::class, $blog);
+        $form = $this->createForm(BlogType::class, $blog);
         $form->handleRequest($request);
 
         if($form->isSubmitted()&&$form->isValid())
@@ -50,9 +52,40 @@ class AddController extends Controller
         ));
     }
 
-    public function productAction()
+    public function productAction(Request $request)
     {
-        //TODO productAddHandler
+        $blog = new Animal();
+        $form = $this->createForm(AnimalType::class, $blog);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()&&$form->isValid())
+        {
+            $user = $this->getUser();
+            $blog->setAuthor($user);
+            $blog->setDate(new \DateTime());
+
+            /** @var UploadedFile $image */
+            $image = $blog->getImage();
+
+            $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+
+            // moves the file to the directory where brochures are stored
+            $image->move(
+                $this->getParameter('image.article.path'),
+                $fileName
+            );
+
+            // updates the 'brochure' property to store the PDF file name
+            // instead of its contents
+            $blog->setImage($fileName);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($blog);
+
+            return $this->redirect($this->generateUrl('blog'));
+
+        }
         return $this->render('@App/add/product.html.twig', array());
     }
 
