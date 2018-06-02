@@ -17,7 +17,9 @@ class ArticleType extends AbstractType
     {
         $builder->add('title', TextType::class)
                 ->add('content', TextareaType::class)
-                ->add('image', ImageType::class);
+                ->add('image', ImageType::class, array(
+                    'required' => false,
+                ));
         //TODO Add User automatically (post-persist)
     }/**
      * {@inheritdoc}

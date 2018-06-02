@@ -35,13 +35,6 @@ class Animal extends Article
     private $weight;
 
     /**
-     * @var Owner
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Owner", inversedBy="animals")
-     */
-    private $owner;
-
-    /**
      * @var TypeAnimal
      *
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\TypeAnimal")
@@ -126,30 +119,6 @@ class Animal extends Article
     public function getWeight()
     {
         return $this->weight;
-    }
-
-    /**
-     * Set owner
-     *
-     * @param \AppBundle\Entity\Owner $owner
-     *
-     * @return Animal
-     */
-    public function setOwner(\AppBundle\Entity\Owner $owner = null)
-    {
-        $this->owner = $owner;
-
-        return $this;
-    }
-
-    /**
-     * Get owner
-     *
-     * @return \AppBundle\Entity\Owner
-     */
-    public function getOwner()
-    {
-        return $this->owner;
     }
 
     /**

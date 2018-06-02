@@ -27,17 +27,20 @@ class AddController extends Controller
             /** @var UploadedFile $image */
             $image = $blog->getImage();
 
-            $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+            if($image != null)
+            {
+                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
 
-            // moves the file to the directory where brochures are stored
-            $image->move(
-                $this->getParameter('image.article.path'),
-                $fileName
-            );
+                // moves the file to the directory where brochures are stored
+                $image->move(
+                    $this->getParameter('image.article.path'),
+                    $fileName
+                );
 
-            // updates the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $blog->setImage($fileName);
+                // updates the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $blog->setImage($fileName);
+            }
 
             $em = $this->getDoctrine()->getManager();
 
@@ -54,45 +57,85 @@ class AddController extends Controller
 
     public function productAction(Request $request)
     {
-        $blog = new Animal();
-        $form = $this->createForm(AnimalType::class, $blog);
+        $animal = new Animal();
+        $form = $this->createForm(AnimalType::class, $animal);
         $form->handleRequest($request);
 
         if($form->isSubmitted()&&$form->isValid())
         {
             $user = $this->getUser();
-            $blog->setAuthor($user);
-            $blog->setDate(new \DateTime());
+            $animal->setAuthor($user);
+            $animal->setDate(new \DateTime());
 
             /** @var UploadedFile $image */
-            $image = $blog->getImage();
+            $image = $animal->getImage();
 
-            $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+            if($image != null)
+            {
+                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
 
-            // moves the file to the directory where brochures are stored
-            $image->move(
-                $this->getParameter('image.article.path'),
-                $fileName
-            );
+                // moves the file to the directory where brochures are stored
+                $image->move(
+                    $this->getParameter('image.article.path'),
+                    $fileName
+                );
 
-            // updates the 'brochure' property to store the PDF file name
-            // instead of its contents
-            $blog->setImage($fileName);
+                // updates the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $animal->setImage($fileName);
+            }
 
             $em = $this->getDoctrine()->getManager();
 
-            $em->persist($blog);
+            $em->persist($animal);
 
-            return $this->redirect($this->generateUrl('blog'));
+            return $this->redirect($this->generateUrl('profile_myproducts'));
 
         }
-        return $this->render('@App/add/product.html.twig', array());
+        return $this->render('@App/add/product.html.twig', array(
+            "form" => $form->createView(),
+        ));
     }
 
-    public function recipeAction()
+    public function recipeAction(Request $request)
     {
-        //TODO recipeAddHandler
-        return $this->render('@App/add/recipe.html.twig', array());
+        $recipe = new Animal();
+        $form = $this->createForm(AnimalType::class, $recipe);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()&&$form->isValid())
+        {
+            $user = $this->getUser();
+            $recipe->setAuthor($user);
+            $recipe->setDate(new \DateTime());
+
+            /** @var UploadedFile $image */
+            $image = $recipe->getImage();
+            if($image != null)
+            {
+                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+
+                // moves the file to the directory where brochures are stored
+                $image->move(
+                    $this->getParameter('image.article.path'),
+                    $fileName
+                );
+
+                // updates the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $recipe->setImage($fileName);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($recipe);
+
+            return $this->redirect($this->generateUrl('explore_recipe'));
+
+        }
+        return $this->render('@App/add/recipe.html.twig', array(
+            "form" => $form->createView(),
+        ));
     }
 
     /**
