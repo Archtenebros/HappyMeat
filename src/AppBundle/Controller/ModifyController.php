@@ -2,31 +2,152 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Blog;
+use AppBundle\Form\AnimalType;
+use AppBundle\Form\BlogType;
+use AppBundle\Form\RecipeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ModifyController extends Controller
 {
-    public function blogAction()
+    public function blogAction(Request $request, $id)
     {
-        //TODO blogModifyHandler
-        return $this->render('@App/modify/blog.html.twig', array());
+        $blog = $this->getDoctrine()->getRepository('AppBundle:Blog')->find($id);
+        $form = $this->createForm(BlogType::class, $blog);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()&&$form->isValid())
+        {
+            $user = $this->getUser();
+            $blog->setAuthor($user);
+            $blog->setDate(new \DateTime());
+
+            /** @var UploadedFile $image */
+            $image = $blog->getImage();
+
+            if($image != null)
+            {
+                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+
+                // moves the file to the directory where brochures are stored
+                $image->move(
+                    $this->getParameter('image.article.path'),
+                    $fileName
+                );
+
+                // updates the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $blog->setImage($fileName);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($blog);
+
+            return $this->redirect($this->generateUrl('blog'));
+
+        }
+
+        return $this->render('@App/modify/blog.html.twig', array(
+            "form" => $form->createView(),
+        ));
     }
 
-    public function newsAction()
+    public function productAction(Request $request, $id)
     {
-        //TODO newsModifyHandler
-        return $this->render('@App/modify/news.html.twig', array());
+        $animal = $this->getDoctrine()->getRepository('AppBundle:Animal')->find($id);
+        $form = $this->createForm(AnimalType::class, $animal);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()&&$form->isValid())
+        {
+            $user = $this->getUser();
+            $animal->setAuthor($user);
+            $animal->setDate(new \DateTime());
+
+            /** @var UploadedFile $image */
+            $image = $animal->getImage();
+
+            if($image != null)
+            {
+                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+
+                // moves the file to the directory where brochures are stored
+                $image->move(
+                    $this->getParameter('image.article.path'),
+                    $fileName
+                );
+
+                // updates the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $animal->setImage($fileName);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($animal);
+
+            return $this->redirect($this->generateUrl('product_all'));
+
+        }
+
+        return $this->render('@App/modify/product.html.twig', array(
+            "form" => $form->createView(),
+        ));
     }
 
-    public function productAction()
+    public function recipeAction(Request $request, $id)
     {
-        //TODO productModifyHandler
-        return $this->render('@App/modify/product.html.twig', array());
+        $recipe = $this->getDoctrine()->getRepository('AppBundle:Recipe')->find($id);
+        $form = $this->createForm(RecipeType::class, $recipe);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()&&$form->isValid())
+        {
+            $user = $this->getUser();
+            $recipe->setAuthor($user);
+            $recipe->setDate(new \DateTime());
+
+            /** @var UploadedFile $image */
+            $image = $recipe->getImage();
+
+            if($image != null)
+            {
+                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+
+                // moves the file to the directory where brochures are stored
+                $image->move(
+                    $this->getParameter('image.article.path'),
+                    $fileName
+                );
+
+                // updates the 'brochure' property to store the PDF file name
+                // instead of its contents
+                $recipe->setImage($fileName);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($recipe);
+
+            return $this->redirect($this->generateUrl('recipe'));
+
+        }
+
+        return $this->render('@App/modify/recipe.html.twig', array(
+            "form" => $form->createView(),
+        ));
     }
 
-    public function recipeAction()
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName()
     {
-        //TODO recipeModifyHandler
-        return $this->render('@App/modify/recipe.html.twig', array());
+        // md5() reduces the similarity of the file names generated by
+        // uniqid(), which is based on timestamps
+        return md5(uniqid());
     }
 }

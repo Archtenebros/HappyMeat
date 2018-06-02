@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Animal;
 use AppBundle\Entity\Blog;
+use AppBundle\Entity\Recipe;
 use AppBundle\Form\AnimalType;
 use AppBundle\Form\BlogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -99,7 +100,7 @@ class AddController extends Controller
 
     public function recipeAction(Request $request)
     {
-        $recipe = new Animal();
+        $recipe = new Recipe();
         $form = $this->createForm(AnimalType::class, $recipe);
         $form->handleRequest($request);
 
