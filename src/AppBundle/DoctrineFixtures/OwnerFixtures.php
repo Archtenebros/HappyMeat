@@ -18,7 +18,7 @@ class OwnerFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $owner = new Owner();
-        $owner->setName("test");
+        $owner->setName("Jimmy");
         $owner->setEmail("test@test.dk");
         $owner->setUsername("test");
         $owner->setPassword("azerty");
@@ -27,5 +27,7 @@ class OwnerFixtures extends Fixture
         $manager->persist($owner);
 
         $manager->flush();
+
+        $this->addReference('jimmy', $owner);
     }
 }

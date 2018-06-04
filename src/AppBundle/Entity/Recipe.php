@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Recipe extends Article
 {
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     */
+    private $description;
 
     /**
      * @var TypeAnimal
@@ -52,5 +58,29 @@ class Recipe extends Article
     public function getTypeAnimal()
     {
         return $this->typeAnimal;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Recipe
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
