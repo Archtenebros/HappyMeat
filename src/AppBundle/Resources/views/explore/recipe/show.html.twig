@@ -9,7 +9,95 @@
 {% endblock %}
 
 {% block body %}
-    {{ parent() }}
+    <!-- Beginning of main content -->
+
+    <div class="container navrecipes">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <h1 class="main-title"> <span class="title">The recipes</span></h1>
+                    <p class="submenu">
+                        <a href="#recipe1">Recipe 1</a> -
+                        <a href="#recipe2">Recipe 2</a> -
+                        <a href="#recipe3">Recipe 3</a> -
+                        <a href="#recipe4">Recipe 4</a> -
+                        <a class="txt-info" href="#newrecipe"><i class="fa fa-plus"></i>New recipe</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row card-deck">
+
+            <!-- DYNAMIC OBJECT: foreach recipe in allRecipes -->
+
+            <!-- BEGIN -->
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <div class="card recipe-card" id="recipe1">
+                    <!-- img.href = recipe.getImage() -->
+                    <img class="card-img-top" src="{{ asset('assets/img/recipe1.jpg') }}" alt="Chipotle Pulled Chicken Sandwiches">
+                    <div class="card-body">
+                        <!-- h5.innerHTML = recipe.getTitle() -->
+                        <h5 class="card-title">Chipotle Pulled Chicken Sandwiches</h5>
+                        <!-- p.innerHTML = recipe.getDescription() -->
+                        <p class="card-text text-justify">Delicious pulled chicken sandwiches in just 20 minutes? Yep! We’re making it happen. These bad boys in buns contain precooked
+                            pulled chicken—all you have to do is heat it in a pan and you’re at tender, juicy bliss. Although that meat isn’t the only star of the show. </p>
+                        <button type="button" class="btn btn-secondary">Modify</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <!-- END -->
+
+
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <div class="card recipe-card" id="recipe2">
+                    <img class="card-img-top" src="{{ asset('assets/img/recipe2.jpg') }}" alt="Loaded Quinoa Bowls">
+                    <div class="card-body">
+                        <h5 class="card-title">Loaded Quinoa Bowls</h5>
+                        <p class="card-text text-justify">Hot potato alert! The sweet potatoes in this recipe are about as gloriously tender, crisp, and steamy as can be thanks
+                            to a shallow frying technique. Plus, they’re seasoned with smoky spices,— basically, a riff on barbecue sweet potato chips.</p>
+                        <button type="button" class="btn btn-secondary">Modify</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <div class="card recipe-card" id="recipe3">
+                    <img class="card-img-top" src="{{ asset('assets/img/recipe3.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Chipotle Pulled Chicken Sandwiches</h5>
+                        <p class="card-text text-justify">Delicious pulled chicken sandwiches in just 20 minutes? Yep! We’re making it happen. These bad boys in buns contain precooked
+                            pulled chicken—all you have to do is heat it in a pan and you’re at tender, juicy bliss. Although that meat isn’t the only star of the show. </p>
+                        <button type="button" class="btn btn-secondary">Modify</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <div class="card recipe-card" id="recipe4">
+                    <img class="card-img-top" src="{{ asset('assets/img/recipe4.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Pork Carnitas Tacos</h5>
+                        <p class="card-text text-justify">Think of this as a quicker, weeknight-friendly version of carnitas—one that doesn’t involve hours of slow-cooking. To create it in minimal time,
+                            you’ll add a spice blend and a bit of stock to make ground pork rich and saucy. </p>
+                        <button type="button" class="btn btn-secondary">Modify</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- end of the main content -->
 {% endblock %}
 
 {% block javascripts %}

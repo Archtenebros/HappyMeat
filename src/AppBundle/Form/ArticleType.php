@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,7 +18,7 @@ class ArticleType extends AbstractType
     {
         $builder->add('title', TextType::class)
                 ->add('content', TextareaType::class)
-                ->add('image', ImageType::class, array(
+                ->add('image', FileType::class, array(
                     'required' => false,
                 ));
         //TODO Add User automatically (post-persist)

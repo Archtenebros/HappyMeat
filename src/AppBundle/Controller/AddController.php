@@ -7,8 +7,9 @@ use AppBundle\Entity\Blog;
 use AppBundle\Entity\Recipe;
 use AppBundle\Form\AnimalType;
 use AppBundle\Form\BlogType;
+use AppBundle\Form\RecipeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AddController extends Controller
@@ -101,7 +102,7 @@ class AddController extends Controller
     public function recipeAction(Request $request)
     {
         $recipe = new Recipe();
-        $form = $this->createForm(AnimalType::class, $recipe);
+        $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);
 
         if($form->isSubmitted()&&$form->isValid())

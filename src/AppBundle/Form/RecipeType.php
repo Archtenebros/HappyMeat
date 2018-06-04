@@ -19,11 +19,7 @@ class RecipeType extends ArticleType
         $builder->add('typeAnimal', EntityType::class, array(
                     'choice_label' => 'Animal Type',
                     'class' => 'AppBundle\Entity\TypeAnimal',
-                ))
-                ->add('ingredients', CollectionType::class, array(
-                    "allow_add" => true,
-                    "entry_type" => IngredientType::class,
-                )); //TODO Jimmy regarde https://symfony.com/doc/3.4/reference/forms/types/collection.html pour le côté client
+                ));
     }/**
      * {@inheritdoc}
      */

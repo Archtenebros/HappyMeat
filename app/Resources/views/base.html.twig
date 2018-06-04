@@ -1,56 +1,160 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" />
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        <nav class="navbar-expand navbar bg-light">
-            <a class="navbar-brand">Happy Meat</a>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About us</a>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Anton%7CFjalla+One%7COswald%7COpen+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    {% block stylesheets %}
+
+    {% endblock %}
+
+
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo.png') }}" width="300" class="d-inline-block align-top" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="">FIND A FARMER</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('blog') }}">BLOG</a></li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="classes.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EXPLORE</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('explore_aboutus') }}">Meet Happy Meat</a>
+                    <a class="dropdown-item" href="{{ path('explore_organicfarming') }}">Organic Farming</a>
+                    <a class="dropdown-item" href="{{ path('explore_howitworks') }}">How It Works</a>
+                    <a class="dropdown-item" href="{{ path('explore_recipe') }}">Eat Happy Meat</a>
+                </div>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="col-sm-1">
+
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Search" placeholder="Search...">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-5">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ path('favorite') }}"><img id="logoheart" src="{{ asset('assets/img/icon-heart.png') }}" width="24" class="d-inline-block align-top" alt="Logo"></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropLogin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LOGIN</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropLogin">
+                        <a class="dropdown-item" href="classes.html#tennis">SIGN IN</a>
+                        <a class="dropdown-item" href="classes.html#tennis">SIGN UP</a>
+                    </div>
                 </li>
             </ul>
-            <div class="navbar-collapse collapse d-flex flex-row-reverse">
-                <div class="d-flex flex-column">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Sign in</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Connect</a>
-                        </li>
-                    </ul>
-                    <form>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="search"><i class="glyphicon glyphicon-search"></i></span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </nav>
+        </div>
+        <div class="col-sm-7">
+            <a href="{{ path('basket') }}" id="basket"><span class="fa fa-shopping-basket"></span>BASKET : 0.00 €</a>
+        </div>
+    </div>
+</nav> <!-- End of Navbar -->
+
+
+
         <div class="row">
             <div class="col-12">
                 {% block body %}{% endblock %}
             </div>
         </div>
         {% block javascripts %}
-            <script src="{{ asset('assets/js/jquery-3.3.1.js') }}"></script>
-            <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
         {% endblock %}
-    </body>
+
+
+
+<!-- beginning of footer -->
+
+<div class="partners">
+    <div class="container-fluid no-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <h3><span class="title">OUR PARTNERS</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img id="partner1" class="partner-img" src="{{ asset('assets/img/logo-bio1.svg') }}" alt="BioLogo-1">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img class="partner-img" src="{{ asset('assets/img/logo-bio2.png') }}" alt="BioLogo-2">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img id="partner3" class="partner-img" src="{{ asset('assets/img/logo-bio3.png') }}" alt="BioLogo-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            <a href="{{ path('home') }}">HOME</a>
+                            <a href="{{ path('blog') }}">BLOG</a>
+                            <a href="{{ path('explore_howitworks') }}">HOW IT WORKS</a>
+                            <a href="{{ path('explore_aboutus') }}">ABOUT US</a>
+                        </p>
+                        <p>
+                            <span class="title-xs">Meet Happy Meat</span>&nbsp; &copy; - Jimmy.H & Yves.J & Arthur.L & Melissa.M & Cleo.S
+                        </p>
+                        <a href="{{ path('explore_howitworks') }}"><h1 class="title-xs text-success">Frequently Asked Questions</h1></a>
+                    </div>
+
+                    <div class="col-md-3 offset-md-3 footersocial">
+                        <h3>FOLLOW US ON: </h3>
+                        <div class="socialnetworksfooter">
+                            <a href="https://instagram.com/" class="fa fa-instagram"> </a>
+                            <a href="https://facebook.com/" class="fa fa-facebook"> </a>
+                            <a href="https://twitter.com/" class="fa fa-twitter"> </a>
+                            <a href="https://youtube.com/" class="fa fa-youtube"> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end of footer -->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
 </html>

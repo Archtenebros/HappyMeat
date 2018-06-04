@@ -9,7 +9,58 @@
 {% endblock %}
 
 {% block body %}
-    {{ parent() }}
+
+    <!-- Beginning of main content -->
+
+    <main>
+        <div class="main-jumbotron-organic jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="col-sm-12 text-center">
+                    <h1 class="align-middle"><span class="text-light title">ORGANIC FARMING</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="title">Definition</h1>
+                <h5>Organic farming is an agricultural system that gives consumers access to healthy, nutritious and fresh food while taking natural life-cycle systems into account. The goal of organic farming is to reduce human impact on the environment and to make the agricultural system as natural as possible. An important feature of organic farming is the reduction and strict limits of the chemical and synthetic pesticides and fertilizers used, livestock antibiotics, additives and other inputs. </h5>
+            </div>
+        </div>
+        <div class="container">
+            <h3 class="title-little">Which benefits does organic food have?</h3>
+            <h5>
+                <span class="title-little">Start get healthy:</span><br>
+                Products which are produced by organic farming are more healthy because in the food production no chemicals are used.<br>
+                A long-term study has shown that meat from organic animals contains significantly more essential omega-3 fatty acids,
+                because these animals are more kept outside and can eat more fresh grass.<br><br>
+
+
+            </h5>
+            <hr class="line">
+            <h5>
+                <span class="title-little">Protection of animals:</span><br>
+                In organic farming the animals are kept more natural. The animals are preferably kept in free-range and be supplied
+                with organic food. In organic farming, the needs and types of housing have to be adapted to the respective species.<br>
+                Additionally, there´s provided more space for the animals.<br><br>
+                Help saving the environment:
+                The fertilizers and pesticides used in feed production are a serious factor for consumers, residents' health and the local environment. The poisonous chemical substances can later be found in food, soil, air, water, flora, fauna and livestock.
+            </h5>
+            <hr class="line">
+            <div class="row">
+                <div class="col-sm-5 ">
+                    <img src="{{ asset('assets/img/diagram1.png') }}" alt="Diagram 1">
+                </div>
+                <div class="col-sm-5 offset-sm-2  ">
+                    <img src="{{ asset('assets/img/diagram2.png') }}" alt="Diagram 2">
+                </div>
+            </div>
+
+
+        </div>
+
+    </main>
+
+    <!-- end of the main content -->
 {% endblock %}
 
 {% block javascripts %}

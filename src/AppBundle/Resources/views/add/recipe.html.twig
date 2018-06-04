@@ -10,6 +10,27 @@
 
 {% block body %}
     {{ parent() }}
+    <div class="jumbotron">
+    <h1 class="title text-center">Add Recipe</h1>
+    </div>
+    <div class="container">
+        <div class="col-md-11">
+            <div class="form-title form-md">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+            </div>
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content) }}
+            <div class="form-img">
+                {{ form_label(form.image) }}
+                {{ form_widget(form.image) }}
+            </div>
+            <div class="form-type form-sm">
+                {{ form_label(form.typeAnimal) }}
+                {{ form_widget(form.typeAnimal) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
