@@ -55,3 +55,7 @@ app_product:
 app_profile:
     resource: '@AppBundle/Resources/config/routing/profile.yml'
     prefix: /profile/
+
+app_search:
+    resource: '@AppBundle/Resources/config/routing/search.yml'
+    prefix: /search/

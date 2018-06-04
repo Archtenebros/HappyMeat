@@ -1,0 +1,3 @@
+search_farmers:
+  path: farmers/
+  controller: AppBundle:Search:farmers
