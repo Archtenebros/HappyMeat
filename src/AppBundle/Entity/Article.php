@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap({
        "animal" = "Animal",
- *     "news" = "News",
  *     "blog" = "Blog",
  *     "recipe" = "Recipe"
  * })

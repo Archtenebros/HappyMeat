@@ -1,0 +1,568 @@
+#logoheart:hover{
+  opacity:0.70;
+}
+
+body{
+    width: 100%;
+}
+
+@font-face {
+    font-family: fontTitle;
+    src: url(../font/Jalisco.ttf);
+}
+
+.title{
+  font-family: fontTitle;
+  font-size: 124px;
+}
+
+.title-little{
+  font-family: fontTitle;
+  font-size: 58px;
+}
+
+.title-xs{
+  font-family: fontTitle;
+  font-size: 46px;
+}
+
+.red {
+  color : red;
+}
+
+.green {
+  color : green;
+}
+
+.font-bg{
+  font-family: 'Anton', sans-serif;
+}
+
+.red-bg {
+  font-family: 'Anton', sans-serif;
+  background-color: red;
+  color : white;
+}
+
+.green-bg {
+  font-family: 'Anton', sans-serif;
+  background-color: rgb(71, 209, 71);
+  color : white;
+}
+
+.blue-bg {
+  font-family: 'Anton', sans-serif;
+  background-color: #6699ff;
+  color : white;
+}
+
+.black-bg {
+  font-family: 'Anton', sans-serif;
+  background-color: black;
+  color : white;
+}
+
+.white-bg {
+  font-family: 'Anton', sans-serif;
+  background-color: white;
+  color : black;
+  opacity: 0.75;
+}
+
+.img-bw{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.img-opacity:hover{
+  opacity: 0.92;
+
+}
+
+h2 {
+  font-family: "Fjalla One";
+  margin-top: 1.5em;
+}
+
+/* Css for the navbar */
+
+.nav-link {
+  font-family: 'Fjalla One', sans-serif;
+  margin-left: 1em;
+}
+
+#basket > span{
+  padding-top: 0.65rem;
+  padding-left: 1em;
+  padding-right: 0.75em;
+}
+
+/* End of css for the navbar */
+
+/* Css for the footer and partners */
+
+.partners {
+  display: flex;
+  margin-top: 3rem;
+  background-image:  url("../img/background-sponsors.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  align-items: center;
+  padding-top: 1.5em;
+}
+
+#partner1{
+  width: 6em;
+}
+
+#partner3{
+  width: 7em;
+}
+
+.partner-img {
+  width: 10em;
+  margin-top: 3em;
+}
+
+
+.footer {
+  background-color: rgb(41,44,47, 0.74);
+  margin-top: 2rem;
+  padding-top: 2em;
+  font-family: 'Fjalla One', sans-serif;
+  color: white;
+  padding:3rem 7rem 0rem;
+
+}
+
+.socialnetworksfooter{
+  padding-top:0.7rem;
+}
+
+.no-margin{
+  padding-left:0;
+  padding-right:0;
+}
+
+.footer a {
+  text-decoration: none;
+  color : white;
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+
+.footer a:hover{
+  color: #ff8533;
+}
+
+.footersocial a {
+  font-size: 1.75rem;
+  padding-left: 0.4rem;
+  padding-top: 0.5rem;
+
+}
+
+/* Css for the footer and sponsors */
+
+/* Css for the home page */
+.main-jumbotron {
+  height: 30rem;
+  background-image: url("../img/jumbotron.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.home-carousel{
+    overflow: hidden;
+    height: 36rem;
+}
+
+.home-carousel img{
+    width:100%;
+}
+
+.main-jumbotron h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+}
+
+.home-buttons button{
+  margin-bottom:1rem;
+}
+
+article {
+  font-family: 'Oswald', sans-serif;
+}
+
+article p {
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-align: justify;
+}
+
+.home-carousel-caption{
+    margin-bottom: 30rem;
+}
+
+.carousel-info-background{
+    background-color: rgb(41,44,47,0.38);
+
+}
+
+.main-text
+{
+    position: absolute;
+    top: 50px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+
+
+
+@media screen and (max-width: 992px) {
+    .title {
+        font-size: 112px;
+    }
+    .title-little {
+        font-size: 52px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 48px;
+    }
+
+    .title-little {
+        font-size: 32px;
+    }
+}
+/* End of css for the home page */
+
+/* Css for the about page */
+#vision{
+  padding-top: 3rem;
+}
+/* End of css for the about page */
+
+/* Css for the organic page */
+.main-jumbotron-organic {
+  height: 30rem;
+  background-image: url("../img/jumbotron-organic.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+/* End of css for the organic page */
+
+
+
+
+/* Css for the blog page */
+.main-jumbotron-blog {
+  height: 30rem;
+  background-image: url("../img/jumbotron-blog.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.post-preview > a {
+  color: #212529;
+}
+
+.post-preview > a:hover {
+  text-decoration: none;
+  color: #8B8900;
+}
+
+.post-preview > a > .post-title {
+  font-size: 32px;
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
+}
+
+.post-preview > a > .post-subtitle {
+  font-size: 22px;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
+
+.post-preview > .post-meta {
+  font-style: italic;
+  font-size: 16px;
+  color: #868e96;
+}
+
+.post-preview > .post-meta > a {
+  color: #091314;
+  text-decoration: none;
+  font-weight: bold;
+
+}
+
+.post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
+  color: #007D40;
+}
+
+
+
+/* End of css for the blog page */
+
+/* Css for the recipes page */
+
+.main-title {
+  font-family: 'Anton', sans-serif;
+  margin-top: 2rem;
+}
+
+.submenu {
+  margin-top: 20px;
+  font-family: "Fjalla One";
+}
+
+.submenu a {
+  text-decoration: none;
+  color: rgb(0, 204, 204);
+}
+
+.recipe-card {
+    width: 18rem;
+}
+
+.card {
+        margin: 2em auto;
+        float: none;
+}
+
+#basket{
+  font-size: 16px;
+  margin-top: 6px;
+  color: #777;
+}
+
+.navrecipes i{
+  padding-left:0.25rem;
+  padding-right:0.25rem;
+}
+
+/* End of css for the recipes page */
+
+
+/* Css for the about page */
+
+.hours {
+  font-family: "Fjalla One";
+}
+
+.hours th {
+  background-color: black;
+  color : white;
+}
+
+.hours tr {
+   line-height: 7px;
+   min-height: 7px;
+   height: 7px;
+}
+
+.hours tr:nth-child(2n+1)
+{
+  background-color: #fff;
+}
+
+.hours tr:nth-child(2n)
+{
+  background-color: #eee;
+}
+
+.location
+{
+  width: 100%;
+  height: 15rem;
+  border: none;
+}
+
+/* End of css for the about page */
+
+
+/* Css for the farmers page*/
+
+.farmers > div{
+  padding-bottom: 2.5rem;
+}
+
+.farmer1{
+  background-image: url("../img/farmer1.jpg");
+}
+
+.farmer2{
+  background-image: url("../img/farmer2.jpg");
+}
+
+.farmer3{
+  background-image: url("../img/farmer3.jpg");
+}
+
+.farmer4{
+  background-image: url("../img/farmer4.jpg");
+}
+
+.farmers {
+  padding: 0% 3% 3% 3%;
+}
+
+.farmer:hover{
+    opacity: 0.92;
+}
+
+.farmer > h2 {
+  padding-top: 340px;
+  max-width: 40rem;
+  margin-bottom:1em;
+
+}
+
+.farmer{
+  box-sizing: border-box;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color : white;
+  height: 880px;
+}
+
+
+.white-bg-farmer{
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #222;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-family: 'Fjalla One', sans-serif;
+  display:inline;
+  font-size: 28px;
+}
+
+@media screen and (max-width: 1400px){
+	.white-bg-farmer{
+		font-size:22px;
+	}
+}
+
+@media screen and (max-width: 1200px){
+	.white-bg-farmer{
+		font-size:18px;
+	}
+}
+
+@media screen and (max-width: 991px){
+	.white-bg-farmer{
+		font-size:26px;
+	}
+
+  .farmer{
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 590px){
+  .white-bg-farmer{
+		font-size:44px;
+	}
+}
+
+@media screen and (max-width: 430px){
+  .white-bg-farmer{
+		font-size:23px;
+	}
+}
+
+.farmers i{
+  padding-right: 0.5rem;
+}
+
+/* End of css for the farmers page*/
+
+
+/* Css for the profile page */
+
+.profile > h1 > img {
+  margin-right: 2rem;
+}
+
+.profile-desc {
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+
+
+
+.gallery i {
+  padding-right: 1rem;
+}
+
+.profile a{
+  margin-top: 3rem;
+}
+/* End of Css for the profile page */
+
+/* Css for the basket page */
+
+.productinfo{
+  padding-left: 2rem;
+}
+
+.productlogo{
+  width: 72px;
+  height: 72px;
+}
+
+/* End of Css for the basket page */
+
+/* Css for the products page */
+
+.products{
+  padding-top: 2rem;
+}
+
+.products img{
+  display: block;
+  width: auto;
+  max-height: 147px;
+}
+
+/* End of Css for the products page */
+
+/* Css for the forms */
+
+.form-item{
+    padding-bottom: 2rem;
+}
+
+.form-img{
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.form-md > input, .form-md > select{
+    width:50%;
+}
+
+.form-sm > input, .form-sm > select{
+    width:25%;
+}
+
+.form-title{
+
+}
+/* End of Css for the forms */

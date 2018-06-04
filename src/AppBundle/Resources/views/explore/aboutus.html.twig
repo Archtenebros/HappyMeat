@@ -9,7 +9,125 @@
 {% endblock %}
 
 {% block body %}
-    {{ parent() }}
+
+    <!-- Beginning of main content -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <img class="img-responsive" src="{{ asset('assets/img/VisionHappyMeat.png') }}" alt="Vision of Meet Happy Meat">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr class="line">
+
+
+    <div class="jumbotron">
+        <div class="col-md-10">
+            <div class="text-justify">
+                <h1 class="title">Our vision</h1>
+                <h3> Imagine a world in which humans, animals and the environment live together in balance and treat each other fair and respectful.
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <hr class="line">
+    <div class="container">
+        <h1 class="title text-center">Our mission</h1>
+        <div id="meet" class="row">
+            <div class="col-md-10">
+                <div class="text-justify">
+                    <h3 class="title">Meet</h3>
+
+                    <h3> Meet Happy Meat wants to connect gourmets with organic farmers next door and create a trustful relationship.
+                    </h3>
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+
+        <hr class="line">
+
+
+        <div id="happy" class="row">
+            <div class="col-md-10">
+                <h1 class="title">Happy</h1>
+                <div class="text-justify">
+                    <h4 class=""> I. Since the welfare of the animals and a sustainable way of dealing with the environment are essential for us,
+                        we only support those who lovingly care for their animals and ensure that the standards of animal keeping are complied with -> Fair keeping of animals. <br><br>
+                        II. Of Course we are focused on the farmer, because without farmers no happy meat. Be our partner, present yourself on our platform and we will support you in your sales processes -> happy farmer.<br><br>
+                        III. Through the personal contact and the provided transparent information, you can make your ideal personal buying decision -> Satisfied Customer.
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <hr class="line">
+
+        <div id="meat" class="row">
+            <div class="col-md-10">
+                <h1 class="title">Meat</h1>
+                <div class="text-justify">
+                    <h3> With the great diversity and the high quality of the products, of course, every meat lovers wishes will be fulfilled.&nbsp;<i class="fa fa-smile-o"></i>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <h2>THE LOCATION</h2>
+                </div>
+                <iframe class="location" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8953.924985022224!2d9.8861799!3d55.8716663!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa65113d28ba174ba!2sVIA+University+College!5e0!3m2!1sfr!2sdk!4v1521371343948" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center">
+                    <h2>CONTACT US</h2>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="FName">Fist Name</label>
+                        <input type="text" class="form-control" id="FName" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="LName">Last Name</label>
+                        <input type="text" class="form-control" id="LName" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email address</label>
+                        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="e.g: hello@example.com">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="controlStatus">Your Status</label>
+                        <select class="form-control" id="controlStatus">
+                            <option>Farmer</option>
+                            <option>Customer</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="textMessage">Your message</label>
+                        <textarea class="form-control" id="textMessage" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- end of the main content -->
 {% endblock %}
 
 {% block javascripts %}

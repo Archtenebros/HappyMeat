@@ -20,16 +20,13 @@ class ExploreController extends Controller
         ));
     }
 
+    public function howItWorksAction(){
+        return $this->render('@App/explore/howitworks.html.twig');
+    }
+
     public function aboutUsAction()
     {
         return $this->render('@App/explore/aboutus.html.twig', array());
-    }
-
-    public function newsletterAction()
-    {
-        return $this->render('@App/explore/newsletter.html.twig', array(
-            "news" => $this->getDoctrine()->getRepository("AppBundle:News")->findAll(),
-        ));
     }
 
     public function organicFarmingAction()
