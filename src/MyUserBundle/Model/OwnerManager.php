@@ -8,6 +8,7 @@
 
 namespace MyUserBundle\Model;
 
+use AppBundle\Entity\Owner;
 use Doctrine\Common\Persistence\ObjectManager;
 use FOS\UserBundle\Doctrine\UserManager;
 use FOS\UserBundle\Util\CanonicalFieldsUpdater;
@@ -20,8 +21,11 @@ class OwnerManager extends UserManager
         parent::__construct($passwordUpdater, $canonicalFieldsUpdater, $om, $class);
     }
 
+    /**
+     * @return Owner
+     */
     public function createOwner()
     {
-
+        return new Owner();
     }
 }
