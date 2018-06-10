@@ -11,20 +11,53 @@
 {% block body %}
     {{ parent() }}
     {{ form_start(form) }}
-    <div class="col-10">
-        {{ form_widget(form.name) }}
-    </div>
-    <div class="col-10">
-        {{ form_widget(form.email) }}
-    </div>
-    <div class="col-10">
-        {{ form_widget(form.username) }}
-    </div>
-    <div class="col-10">
-        {{ form_widget(form.plainPassword) }}
-    </div>
-    <div class="col-10">
-        {{ form_rest(form) }}
+    <div class="form-group text-right">
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="registration_form_farmer_name" class="title-little">Name</label>
+            </div>
+            <div class="col-sm-4 d-flex align-items-center">
+                {{ form_widget(form.name) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="registration_form_farmer_email" class="title-little">Email</label>
+            </div>
+            <div class="col-sm-4 d-flex align-items-center">
+                {{ form_widget(form.email) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="registration_form_farmer_username" class="title-little">Username</label>
+            </div>
+            <div class="col-sm-4 d-flex align-items-center">
+                {{ form_widget(form.username) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="registration_form_farmer_plainPassword_first" class="title-little">Password</label>
+            </div>
+            <div class="col-sm-4 d-flex align-items-center">
+                {{ form_widget(form.plainPassword.first) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="registration_form_farmer_plainPassword_second" class="title-little">Password confirmation</label>
+            </div>
+            <div class="col-sm-4 d-flex align-items-center">
+                {{ form_widget(form.plainPassword.second) }}
+            </div>
+        </div>
+        <div class="row d-flex justify-content-around">
+            {{ form_widget(form.validate) }}
+        </div>
+        <div class="col-10">
+            {{ form_rest(form) }}
+        </div>
     </div>
     {{ form_end(form) }}
 {% endblock %}

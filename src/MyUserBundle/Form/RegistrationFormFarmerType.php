@@ -25,22 +25,25 @@ class RegistrationFormFarmerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', EmailType::class, array('label' => 'Email'))
+            ->add('username', null, array('label' => 'Username'))
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'options' => array(
-                    'translation_domain' => 'FOSUserBundle',
                     'attr' => array(
                         'autocomplete' => 'new-password',
                     ),
                 ),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
-                'invalid_message' => 'fos_user.password.mismatch',
+                'first_options' => array('label' => 'Password'),
+                'second_options' => array('label' => 'Password confirmation'),
+                'invalid_message' => 'The passwords doesn\'t match.',
             ))
         ;
-        $builder->add('name', TextType::class)
+        $builder->add('name', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'label' => 'Name',
+            'label_attr' => array('class' => 'title-litle')
+        ))
                 ->add('validate', SubmitType::class);
     }
 
