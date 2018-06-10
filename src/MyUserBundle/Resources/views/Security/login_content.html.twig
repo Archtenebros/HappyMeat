@@ -1,22 +1,42 @@
-{% trans_default_domain 'FOSUserBundle' %}
+<h1 class="title text-center">Login</h1>
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+<div class="jumbotron">
+    <div class="container login">
+        <div class="row">
+            {% if error %}
+                <div>{{ error.messageKey}}</div>
+            {% endif %}
+            <div class="col-sm-4 offset-sm-4">
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+                    <div class="form-group text-center">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="username" class="title-little">Username</label>
+                            </div>
+                            <div class="col-sm-8 d-flex align-items-center">
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label for="password" class="title-little">Password</label>
+                            </div>
+                            <div class="col-sm-8 d-flex align-items-center">
+                                <input type="password" id="password" name="_password" required="required" autocomplete="current-password" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 offset-sm-9">
+                                <input type="submit" id="_submit" name="_submit" value="Sign in" class="btn btn-dark"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
-
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
