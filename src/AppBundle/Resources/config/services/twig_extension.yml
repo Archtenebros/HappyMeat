@@ -1,0 +1,4 @@
+services:
+    instanceof_twig_extension:
+        class: AppBundle\TwigExtension\IsFarmer
+        tags: ['twig.extension']

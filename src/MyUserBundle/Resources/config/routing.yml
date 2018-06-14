@@ -1,3 +1,7 @@
 register_farmer:
     path: register/farmer/
     controller: MyUserBundle:Registration:registerFarmer
+
+edit_profile_farmer:
+    path: profile/farmer/edit
+    controller: MyUserBundle:OwnerProfile:edit

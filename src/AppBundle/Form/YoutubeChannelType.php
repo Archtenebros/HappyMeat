@@ -3,36 +3,26 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ImageType extends AbstractType
+class YoutubeChannelType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        //TODO see https://symfony.com/doc/current/controller/upload_file.html
-        $builder->add('url', FileType::class);
-    }/**
-     * {@inheritdoc}
-     */
+        $builder->add('url', UrlType::class);
+    }
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Image'
+            'data_class' => 'AppBundle\Entity\YoutubeChannel'
         ));
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix()
     {
-        return 'appbundle_image';
+        return 'app_bundle_youtube_channel';
     }
-
-
 }

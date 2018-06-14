@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>User part</h1>
+        </div>
+        <div class="col-12">
+            {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+            {{ form_widget(form) }}
+            <div>
+                <button class="btn-secondary btn" type="submit">Validate</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    {% if app.user is isfarmer() %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Farmer part</h1>
+            </div>
+            <div class="col-12">
+                {{ render(controller('MyUserBundle\\Controller\\OwnerProfileController::editAction')) }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

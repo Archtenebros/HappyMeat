@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,13 +39,21 @@ class Owner extends User
     /**
      * @var YoutubeChannel
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\YoutubeChannel")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\YoutubeChannel", cascade={"REMOVE", "persist"})
      */
     private $youtubeChannel;
+
+    /**
+     * @var ArrayCollection of Image
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="uploader", cascade={"REMOVE", "persist"})
+     */
+    private $uploadedImages;
 
     public function __construct()
     {
         parent::__construct();
+        $this->uploadedImages= new ArrayCollection();
     }
 
     /**
@@ -209,5 +218,39 @@ class Owner extends User
     public function getYoutubeChannel()
     {
         return $this->youtubeChannel;
+    }
+
+    /**
+     * Add uploadedImage
+     *
+     * @param \AppBundle\Entity\Image $uploadedImage
+     *
+     * @return Owner
+     */
+    public function addUploadedImage(\AppBundle\Entity\Image $uploadedImage)
+    {
+        $this->uploadedImages[] = $uploadedImage;
+
+        return $this;
+    }
+
+    /**
+     * Remove uploadedImage
+     *
+     * @param \AppBundle\Entity\Image $uploadedImage
+     */
+    public function removeUploadedImage(\AppBundle\Entity\Image $uploadedImage)
+    {
+        $this->uploadedImages->removeElement($uploadedImage);
+    }
+
+    /**
+     * Get uploadedImages
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUploadedImages()
+    {
+        return $this->uploadedImages;
     }
 }
