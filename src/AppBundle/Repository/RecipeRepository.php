@@ -10,4 +10,10 @@ namespace AppBundle\Repository;
  */
 class RecipeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByName($title)
+    {
+        return $this->getEntityManager()->createQuery(
+            "SELECT o FROM AppBundle:Recipe o WHERE o.title LIKE '%".$title."%'"
+        )->getResult();
+    }
 }

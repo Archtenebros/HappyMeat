@@ -10,4 +10,10 @@ namespace AppBundle\Repository;
  */
 class AnimalRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByName($name)
+    {
+        return $this->getEntityManager()->createQuery(
+            "SELECT o FROM AppBundle:Animal o WHERE o.name LIKE '%".$name."%'"
+        )->getResult();
+    }
 }

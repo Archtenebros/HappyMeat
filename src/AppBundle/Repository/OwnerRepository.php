@@ -10,4 +10,10 @@ namespace AppBundle\Repository;
  */
 class OwnerRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByName($name)
+    {
+        return $this->getEntityManager()->createQuery(
+            "SELECT o FROM AppBundle:Owner o WHERE o.name LIKE '%".$name."%'"
+        )->getResult();
+    }
 }

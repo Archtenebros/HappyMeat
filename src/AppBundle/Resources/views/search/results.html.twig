@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 ">
+            {{ form(form) }}
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            {% if results is null %}
+                Make a search !
+            {% elseif results is empty %}
+                No results !
+            {% else %}
+                There are results !
+                {# Handle results here ! #}
+                {% if results[0] is isfarmer() %}
+                    {# Si c'est des fermiers pas les mêmes champs #}
+                {% else %}
+
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

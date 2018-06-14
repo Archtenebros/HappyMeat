@@ -28,23 +28,32 @@ class SearchController extends Controller
                     ->getForm();
         $form->handleRequest($request);
         $results = null;
+        $typeSearch = null;
 
         if($form->isSubmitted()&&$form->isValid())
         {
             $data = $form->getData();
-            if($data['typeSearch'] = 'farmer')
+            $typeSearch = $data['typeSearch'];
+            if($data['typeSearch'] == 'farmer')
             {
-                $results = $this->getDoctrine()->getRepository("AppBundle:Owner")->findBy(array("name" => $data['text']));
-            } else if ($data['typeSearch'] = 'product')
+                $results = $this->getDoctrine()->getRepository("AppBundle:Owner")->findByName($data['text']);
+            }
+            else if ($data['typeSearch'] == 'product')
             {
-                $results = $this->getDoctrine()->getRepository("AppBundle:Animal")->findBy(array("title" => $data['text']));
-            } else {
-                $results = $this->getDoctrine()->getRepository("AppBundle:Recipe")->findBy(array("title" => $data['text']));
+                $results = $this->getDoctrine()->getRepository("AppBundle:Animal")->findByName($data['text']);
+            }
+            else
+            {
+                $results = $this->getDoctrine()->getRepository("AppBundle:Recipe")->findByName($data['text']);
             }
         }
 
-        return $this->render('@App/search/farmers.html.twig', array(
+        dump($results);
+
+        return $this->render('@App/search/results.html.twig', array(
             'form' => $form->createView(),
+            'results' => $results,
+            'typeSearch' => $typeSearch
         ));
     }
 }
