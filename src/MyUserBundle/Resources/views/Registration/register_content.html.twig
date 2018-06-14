@@ -1,8 +1,44 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+<div class="form-group text-right">
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="registration_form_farmer_email" class="title-little">Email</label>
+        </div>
+        <div class="col-sm-4 d-flex align-items-center">
+            {{ form_widget(form.email) }}
+        </div>
     </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="registration_form_farmer_username" class="title-little">Username</label>
+        </div>
+        <div class="col-sm-4 d-flex align-items-center">
+            {{ form_widget(form.username) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="registration_form_farmer_plainPassword_first" class="title-little">Password</label>
+        </div>
+        <div class="col-sm-4 d-flex align-items-center">
+            {{ form_widget(form.plainPassword.first) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="registration_form_farmer_plainPassword_second" class="title-little">Password confirmation</label>
+        </div>
+        <div class="col-sm-4 d-flex align-items-center">
+            {{ form_widget(form.plainPassword.second) }}
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around">
+        <button class="btn-secondary btn" type="submit">Validate</button>
+    </div>
+    <div class="col-10">
+        {{ form_rest(form) }}
+    </div>
+</div>
 {{ form_end(form) }}

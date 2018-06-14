@@ -22,7 +22,6 @@ class IsFarmer extends \Twig_Extension
 
     /**
      * @param $var
-     * @param $instance
      * @return bool
      */
     public function isFarmer($var) {
