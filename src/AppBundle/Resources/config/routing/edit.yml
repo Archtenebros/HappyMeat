@@ -1,0 +1,17 @@
+edit_blog:
+    path: "blog/{id}"
+    controller: "AppBundle:Edit:blog"
+    requirements:
+        id: '\d+'
+        
+edit_product:
+    path: "product/{id}"
+    controller: "AppBundle:Edit:product"
+    requirements:
+        id: '\d+'
+
+edit_recipe:
+    path: "recipe/{id}"
+    controller: "AppBundle:Edit:recipe"
+    requirements:
+        id: '\d+'

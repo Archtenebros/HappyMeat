@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="jumbotron">
+        <h1 class="title text-center">Edit Product</h1>
+    </div>
+    <div class="container">
+        <div class="col-md-11">
+            {{ form_start(form) }}
+            <div class="form-item form-md">
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
+            </div>
+            <div class="form-item form-sm">
+                <div class="row">
+                    <div class="col-md-6 ">
+                    {{ form_label(form.age) }}
+                    {{ form_widget(form.age) }}
+                    </div>
+                    <div class="col-md-6">
+                    {{ form_label(form.weight) }}
+                    {{ form_widget(form.weight) }}
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-item form-md">
+                {{ form_label(form.type) }}
+                {{ form_widget(form.type) }}
+            </div>
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content) }}
+            <div class="form-img">
+                {{ form_label(form.image) }}
+                {{ form_widget(form.image) }}
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

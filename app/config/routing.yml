@@ -63,3 +63,7 @@ app_profile:
 app_search:
     resource: '@AppBundle/Resources/config/routing/search.yml'
     prefix: /search/
+
+app_edit:
+    resource: '@AppBundle/Resources/config/routing/edit.yml'
+    prefix: /edit/
