@@ -43,6 +43,13 @@ class ProfileController extends Controller
 
     public function myproductsAction()
     {
-        return $this->$this->render('@App/profile/myproducts.html.twig', array());
+        dump($this->getDoctrine()->getRepository('AppBundle:Animal')->findBy(array(
+            "author" => $this->getUser()->getId()
+        )));
+        return $this->render('@App/profile/myproducts.html.twig', array(
+            "products" => $this->getDoctrine()->getRepository('AppBundle:Animal')->findBy(array(
+                "author" => $this->getUser()->getId()
+            ))
+        ));
     }
 }

@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,7 +25,8 @@ class AnimalType extends ArticleType
                 ->add('type', EntityType::class, array(
                     'choice_label' => 'Animal Type',
                     'class' => 'AppBundle\Entity\TypeAnimal',
-                ));
+                ))
+                ->add('validate', SubmitType::class);
     }
 
     /**

@@ -47,6 +47,7 @@ class AddController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($blog);
+            $em->flush();
 
             return $this->redirect($this->generateUrl('blog'));
 
@@ -90,6 +91,7 @@ class AddController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($animal);
+            $em->flush();
 
             return $this->redirect($this->generateUrl('profile_myproducts'));
 
@@ -131,6 +133,7 @@ class AddController extends Controller
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($recipe);
+            $em->flush();
 
             return $this->redirect($this->generateUrl('explore_recipe'));
 

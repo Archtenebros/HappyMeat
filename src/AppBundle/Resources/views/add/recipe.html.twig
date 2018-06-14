@@ -15,6 +15,7 @@
     </div>
     <div class="container">
         <div class="col-md-11">
+            {{ form_start(form) }}
             <div class="form-title form-md">
             {{ form_label(form.title) }}
             {{ form_widget(form.title) }}
@@ -29,6 +30,8 @@
                 {{ form_label(form.typeAnimal) }}
                 {{ form_widget(form.typeAnimal) }}
             </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}
