@@ -10,6 +10,12 @@
 
 {% block body %}
     {{ parent() }}
+    {%  if conversations is empty %}
+        You have no started conversations ! Go to see the profile of a farmer and start a discussion !
+    {% else %}
+        You have conversation !
+        {# Handle conversations here #}
+    {% endif %}
 {% endblock %}
 
 {% block javascripts %}

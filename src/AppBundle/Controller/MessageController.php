@@ -11,8 +11,15 @@ class MessageController extends Controller
 {
     public function allAction()
     {
+        $conversationRepository = $this->getDoctrine()->getRepository('AppBundle:Conversation');
+
+        $conversations = array_merge(
+            $conversationRepository->findBy(array('user1' => $this->getUser()->getId())),
+            $conversationRepository->findBy(array('user2' => $this->getUser()->getId()))
+        );
+
         return $this->render('@App/message/all.html.twig', array(
-            'conversations' => $this->getUser()->getConversations(),
+            'conversations' => $conversations,
         ));
     }
 
