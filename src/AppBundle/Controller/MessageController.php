@@ -4,19 +4,22 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Conversation;
 use AppBundle\Entity\Message;
+use AppBundle\Form\MessageType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 
 class MessageController extends Controller
 {
+
+// $repository = $this->get('fos_message.repository');
+// $sender = $this->get('fos_message.sender');
+
     public function allAction()
     {
-        $conversationRepository = $this->getDoctrine()->getRepository('AppBundle:Conversation');
+        $repository = $this->get('fos_message.repository');
 
-        $conversations = array_merge(
-            $conversationRepository->findBy(array('user1' => $this->getUser()->getId())),
-            $conversationRepository->findBy(array('user2' => $this->getUser()->getId()))
-        );
+        $conversations = $repository->getPersonConversations($this->getUser());
 
         return $this->render('@App/message/all.html.twig', array(
             'conversations' => $conversations,
@@ -25,43 +28,31 @@ class MessageController extends Controller
 
     public function discussAction(Request $request, $id)
     {
-        $message = new Message();
-        $form = $this->createForm('AppBundle\Form\MessageType', $message);
-        $form->handleRequest($request);
+        $repository = $this->get('fos_message.repository');
 
-        $doctrine = $this->getDoctrine();
-        $conversation = $doctrine->getRepository('AppBundle:Conversation')->findOneBy(array(
-            'user1' => $this->getUser(),
-            'user2' => $doctrine->getRepository('AppBundle:User')->find($id)
-        ));
+        $conversation = $repository->getConversation($id);
 
-        if($conversation == null
-            && $conversation = $doctrine->getRepository('AppBundle:Conversation')->findOneBy(array(
-                    'user2' => $this->getUser(),
-                    'user1' => $doctrine->getRepository('AppBundle:User')->find($id)
-                ))==null)
-        {
-            $conversation = new Conversation();
-            $conversation->setUser1($this->getUser());
-            $conversation->setUser2($doctrine->getRepository('AppBundle:User')->find($id));
+        // Check access
+        if (! $conversation->isPersonInConversation($this->getUser())) {
+            throw new AccessDeniedException();
         }
 
-        $em = $doctrine->getManager();
+        $form = $this->createForm(MessageType::class, null);
+        $form->handleRequest();
 
         if($form->isSubmitted()&&$form->isValid())
         {
-            $message->setDate(new \DateTime());
-            $conversation->addMessage($message);
-
-            $em->persist($conversation);
-            $em->persist($message);
-
-            $em->flush();
+            $data = $form->getData();
+            $sender = $this->get('fos_message.sender');
+            $sender->sendMessage($conversation, $this->getUser(), $data['content']);
         }
 
+        $form = $this->createForm(MessageType::class, null);
+        $messages = $repository->getMessages($conversation);
+
         return $this->render('@App/message/discuss.html.twig', array(
-            'conversation' => $conversation,
-            'form' => $form->createView(),
+            "messages" => $messages,
+            "form" => $form
         ));
     }
 }

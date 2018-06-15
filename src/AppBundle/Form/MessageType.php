@@ -15,7 +15,6 @@ class MessageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('content', TextareaType::class);
-        //TODO add automatically date and conversation, set seen at false
     }/**
      * {@inheritdoc}
      */
