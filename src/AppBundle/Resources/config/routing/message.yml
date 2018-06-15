@@ -7,3 +7,9 @@ message_discuss:
 message_all:
   path: ""
   controller: AppBundle:Message:all
+
+message_start_discuss:
+  path: "start/{idReceiver}"
+  controller: AppBundle:Message:startConversation
+  requirements:
+    idReceiver: '\d+'
