@@ -22,32 +22,34 @@
     <div class="container">
 
         <!-- DYNAMIC OBJECT: foreach post in allposts -->
-
+        {% for blog in blogs %}
         <!-- BEGIN -->
         <div class="row">
             <div class="col-sm-3">
                 <!-- src of the image = post.getImg() -->
-                <img class="img-fluid img-opacity" src="{{ asset('assets/img/new5.jpg') }}" alt="Organic essentials you need"/>
+                <img class="img-fluid img-opacity" src="{{ asset(blog.image) }}" alt="{{ blog.title }}"/>
             </div>
             <div class="col-sm-9">
                 <div class="post-preview">
                         <!-- h3.href = post.getTitle()-->
-                        <h3 class="post-title">The storecupboard organic essentials you need</h3>
-                        <!-- h3.href = post.getDescription()-->
-                        <h3 class="post-subtitle">
-                            So-called ‘grocery’ organic foods are the staples you keep...
-                        </h3>
+                    <a href="{{ path("blog_details", {"id": blog.id}) }}">
+                        <h3 class="post-title">{{ blog.title }}</h3>
+                    </a>
                     <!-- a.href = post.getAuthor() then p.innerHTML += post.getDate()-->
-                    <p class="post-meta">Posted by <a href="#">Jimmy</a> on <span>September 24, 2018</span></p>
+                    <p class="post-meta">Posted by <a href="#">{{ blog.author.username }}</a> on <span>{{ blog.date.format("F jS, Y") }}</span></p>
                 </div>
-                <button type="button" class="btn btn-secondary">Modify</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                {% if app.user == blog.author %}
+                    <button type="button" class="btn btn-secondary">Modify</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                {% endif %}
             </div>
         </div>
         <hr class="line">
         <!-- END -->
-
-        <a href="{{ path('add_blog') }}" class="btn btn-success btn-lg btn-block">Create a new post</a>
+        {% endfor %}
+        {% if app.user != null %}
+            <a href="{{ path('add_blog') }}" class="btn btn-success btn-lg btn-block">Create a new post</a>
+        {% endif %}
     </div>
 
     <!-- end of the main content -->
