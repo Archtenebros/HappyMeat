@@ -10,11 +10,9 @@
 
 {% block body %}
     {{ parent() }}
-    {% if products is not null %}
-        {% for product in products %}
-            {{ product.id }}
-        {% endfor %}
-    {% endif %}
+    {% for product in products %}
+        {{ product.id }}
+    {% endfor %}
 {% endblock %}
 
 {% block javascripts %}
