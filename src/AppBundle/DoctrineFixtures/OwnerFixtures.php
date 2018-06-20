@@ -13,38 +13,64 @@ use AppBundle\Entity\Owner;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use FOS\UserBundle\Event\UserEvent;
+use FOS\UserBundle\FOSUserEvents;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class OwnerFixtures extends Fixture implements OrderedFixtureInterface
 {
+    private $dispatcher;
+
+    public function __construct(EventDispatcherInterface $dispatcher)
+    {
+        $this->dispatcher = $dispatcher;
+    }
+
     public function load(ObjectManager $manager)
     {
         $owner = new Owner();
         $owner->setName("Jimmy HUYHN");
         $owner->setEmail("test@test.dk");
         $owner->setUsername("jimmy01");
-        $owner->setPassword("azerty");
+        $owner->setPlainPassword("azerty");
         $owner->addRole("ROLE_OWNER");
+        $owner->setEnabled(true);
+
+        $event = new UserEvent($owner);
+        $this->dispatcher->dispatch(FOSUserEvents::USER_CREATED, $event);
 
         $owner2 = new Owner();
         $owner2->setName("Nathan GRAY");
         $owner2->setEmail("test2@test.dk");
         $owner2->setUsername("nathan01");
-        $owner2->setPassword("azerty");
+        $owner2->setPlainPassword("azerty");
         $owner2->addRole("ROLE_OWNER");
+        $owner2->setEnabled(true);
+
+        $event = new UserEvent($owner2);
+        $this->dispatcher->dispatch(FOSUserEvents::USER_CREATED, $event);
 
         $owner3 = new Owner();
         $owner3->setName("John CENA");
         $owner3->setEmail("test3@test.dk");
         $owner3->setUsername("john01");
-        $owner3->setPassword("azerty");
+        $owner3->setPlainPassword("azerty");
         $owner3->addRole("ROLE_OWNER");
+        $owner3->setEnabled(true);
+
+        $event = new UserEvent($owner3);
+        $this->dispatcher->dispatch(FOSUserEvents::USER_CREATED, $event);
 
         $owner4 = new Owner();
         $owner4->setName("Bering CALLUM");
         $owner4->setEmail("test4@test.dk");
         $owner4->setUsername("bering01");
-        $owner4->setPassword("azerty");
+        $owner4->setPlainPassword("azerty");
         $owner4->addRole("ROLE_OWNER");
+        $owner4->setEnabled(true);
+
+        $event = new UserEvent($owner3);
+        $this->dispatcher->dispatch(FOSUserEvents::USER_CREATED, $event);
 
         $manager->persist($owner);
         $manager->persist($owner2);

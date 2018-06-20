@@ -70,13 +70,13 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropLogin">
                             <a class="dropdown-item" href="{{ path('add_product') }}">Add a product</a>
                             <a class="dropdown-item" href="{{ path('profile_myproducts') }}">My products</a>
-                            <a class="dropdown-item" href="{{ path('edit_profile_farmer') }}">Edit profile</a>
+                            <a class="dropdown-item" href="{{ path('fos_user_profile_edit') }}">Edit profile</a>
                             <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">Logout</a>
                         </div>
                     {% else %}
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropLogin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PROFILE</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropLogin">
-                            <a class="dropdown-item" href="{{ path('edit_profile_farmer') }}">Edit profile</a>
+                            <a class="dropdown-item" href="{{ path('fos_user_profile_edit') }}">Edit profile</a>
                             <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">Logout</a>
                         </div>
                     {% endif %}

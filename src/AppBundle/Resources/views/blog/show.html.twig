@@ -39,7 +39,9 @@
                     <p class="post-meta">Posted by <a href="#">{{ blog.author.username }}</a> on <span>{{ blog.date.format("F jS, Y") }}</span></p>
                 </div>
                 {% if app.user == blog.author %}
-                    <button type="button" class="btn btn-secondary">Modify</button>
+                    <a href="{{ path("edit_blog", {"id": blog.id}) }}">
+                        <button type="button" class="btn btn-secondary">Modify</button>
+                    </a>
                     <button type="button" class="btn btn-danger">Delete</button>
                 {% endif %}
             </div>

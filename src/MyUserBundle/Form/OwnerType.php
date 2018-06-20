@@ -23,8 +23,7 @@ class OwnerType extends AbstractType
                 ))
                 ->add('youtubeChannel', YoutubeChannelType::class, array(
                     'required' => false
-                ))
-                ->add('validate', SubmitType::class);
+                ));
     }/**
      * {@inheritdoc}
      */

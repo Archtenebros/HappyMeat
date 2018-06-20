@@ -11,7 +11,6 @@ class HomeController extends Controller
 
     public function homeAction()
     {
-        dump($this->getUser());
         return $this->render('@App/home.html.twig');
     }
 }

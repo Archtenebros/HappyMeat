@@ -1,1 +1,23 @@
-{{ form(form) }}
+{{ form_start(form) }}
+<div class="col-12 form-group text-right">
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="appbundle_owner_image" class="title-little">Profile Image</label>
+        </div>
+        <div class="col-sm-4 d-flex align-items-center">
+            {{ form_widget(form.image) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label for="appbundle_owner_youtube_channel_url" class="title-little">Url of your youtube channel</label>
+        </div>
+        <div class="col-sm-4 d-flex align-items-center">
+            {{ form_widget(form.youtubeChannel.url) }}
+        </div>
+    </div>
+    <div class="row d-flex justify-content-around">
+        <button class="btn-secondary btn" type="submit">Validate</button>
+    </div>
+</div>
+{{ form_end(form) }}
