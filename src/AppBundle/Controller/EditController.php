@@ -37,7 +37,7 @@ class EditController extends Controller
 
             if($image != null)
             {
-                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+                $fileName = $this->generateUniqueFileName().'.'.$image->getClientOriginalExtension();
 
                 // moves the file to the directory where brochures are stored
                 $image->move(
@@ -49,7 +49,7 @@ class EditController extends Controller
 
                 // updates the 'brochure' property to store the PDF file name
                 // instead of its contents
-                $blog->setImage($fileName);
+                $blog->setImage($this->getParameter('image.article.path').$fileName);
             }
 
             $em = $this->getDoctrine()->getManager();
@@ -92,7 +92,7 @@ class EditController extends Controller
 
             if($image != null)
             {
-                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+                $fileName = $this->generateUniqueFileName().'.'.$image->getClientOriginalExtension();
 
                 // moves the file to the directory where brochures are stored
                 $image->move(
@@ -104,7 +104,7 @@ class EditController extends Controller
 
                 // updates the 'brochure' property to store the PDF file name
                 // instead of its contents
-                $animal->setImage($fileName);
+                $animal->setImage($this->getParameter('image.article.path').$fileName);
             }
 
             $em = $this->getDoctrine()->getManager();
@@ -145,7 +145,7 @@ class EditController extends Controller
             $image = $recipe->getImage();
             if($image != null)
             {
-                $fileName = $this->generateUniqueFileName().'.'.$image->guessExtension();
+                $fileName = $this->generateUniqueFileName().'.'.$image->getClientOriginalExtension();
 
                 // moves the file to the directory where brochures are stored
                 $image->move(
@@ -157,7 +157,7 @@ class EditController extends Controller
 
                 // updates the 'brochure' property to store the PDF file name
                 // instead of its contents
-                $recipe->setImage($fileName);
+                $recipe->setImage($this->getParameter('image.article.path').$fileName);
             }
 
             $em = $this->getDoctrine()->getManager();
