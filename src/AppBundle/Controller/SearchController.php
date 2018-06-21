@@ -15,7 +15,9 @@ class SearchController extends Controller
     public function farmersAction(Request $request)
     {
         $form = $this->createFormBuilder(null)
-                    ->add('text', TextType::class)
+                    ->add('text', TextType::class, array(
+                        'required' => false,
+                    ))
                     ->add('typeSearch', ChoiceType::class, array(
                         'choices' => array(
                             'Farmer' => 'farmer',
@@ -36,19 +38,17 @@ class SearchController extends Controller
             $typeSearch = $data['typeSearch'];
             if($data['typeSearch'] == 'farmer')
             {
-                $results = $this->getDoctrine()->getRepository("AppBundle:Owner")->findByName($data['text']);
+                $results = $data['text'] == null ? $this->getDoctrine()->getRepository("AppBundle:Owner")->findAll() : $this->getDoctrine()->getRepository("AppBundle:Owner")->findByName($data['text']);
             }
             else if ($data['typeSearch'] == 'product')
             {
-                $results = $this->getDoctrine()->getRepository("AppBundle:Animal")->findByName($data['text']);
+                $results = $data['text'] == null ? $this->getDoctrine()->getRepository("AppBundle:Animal")->findAll() : $this->getDoctrine()->getRepository("AppBundle:Animal")->findByName($data['text']);
             }
             else
             {
-                $results = $this->getDoctrine()->getRepository("AppBundle:Recipe")->findByName($data['text']);
+                $results = $data['text'] == null ? $this->getDoctrine()->getRepository("AppBundle:Recipe")->findAll() : $this->getDoctrine()->getRepository("AppBundle:Recipe")->findByName($data['text']);
             }
         }
-
-        dump($results);
 
         return $this->render('@App/search/results.html.twig', array(
             'form' => $form->createView(),

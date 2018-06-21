@@ -33,6 +33,7 @@ class OwnerFixtures extends Fixture implements OrderedFixtureInterface
         $owner->setEmail("test@test.dk");
         $owner->setUsername("jimmy01");
         $owner->setPlainPassword("azerty");
+        $owner->setImage("assets/img/profile/farmer1.jpg");
         $owner->addRole("ROLE_OWNER");
         $owner->setEnabled(true);
 
@@ -44,6 +45,7 @@ class OwnerFixtures extends Fixture implements OrderedFixtureInterface
         $owner2->setEmail("test2@test.dk");
         $owner2->setUsername("nathan01");
         $owner2->setPlainPassword("azerty");
+        $owner2->setImage("assets/img/profile/farmer2.jpg");
         $owner2->addRole("ROLE_OWNER");
         $owner2->setEnabled(true);
 
@@ -55,6 +57,7 @@ class OwnerFixtures extends Fixture implements OrderedFixtureInterface
         $owner3->setEmail("test3@test.dk");
         $owner3->setUsername("john01");
         $owner3->setPlainPassword("azerty");
+        $owner3->setImage("assets/img/profile/farmer3.jpg");
         $owner3->addRole("ROLE_OWNER");
         $owner3->setEnabled(true);
 
@@ -66,10 +69,11 @@ class OwnerFixtures extends Fixture implements OrderedFixtureInterface
         $owner4->setEmail("test4@test.dk");
         $owner4->setUsername("bering01");
         $owner4->setPlainPassword("azerty");
+        $owner4->setImage("assets/img/profile/farmer4.jpg");
         $owner4->addRole("ROLE_OWNER");
         $owner4->setEnabled(true);
 
-        $event = new UserEvent($owner3);
+        $event = new UserEvent($owner4);
         $this->dispatcher->dispatch(FOSUserEvents::USER_CREATED, $event);
 
         $manager->persist($owner);
