@@ -22,7 +22,7 @@
         <div class="container profile">
             <!-- img.src = profile.getProfilePictureRoot() -->
             <!-- span.innerHTML = user.getName() -->
-            <h1 class="display-4 "><img src="assets/img/farmer1-profilepic.jpg" class="rounded-circle" width="200" alt="Circular Image"><span>HUYNH Jimmy</span></h1>
+            <h1 class="display-4 "><img src="{{ asset(owner.image) }}" class="rounded-circle" width="200" alt="Circular Image"><span>{{ owner.name }}</span></h1>
 
             <!-- p.innerHTML = user.getDescription() -->
             <p class="lead profile-desc">In a few words: "The best farmer of Horsens"</p>
@@ -106,13 +106,15 @@
             <div class="col-sm-4">
                 <!-- img.src = post.getImageRoot() -->
                 <!-- img.alt = post.getTitle() -->
-                <img class="img-fluid" src="{{ asset(post.image) }}" alt="{{ post.title }}"/>
+                <a href="{{ path('blog_details', {'id': post.id}) }}">
+                    <img class="img-fluid" src="{{ asset(post.image) }}" alt="{{ post.title }}"/>
+                </a>
             </div>
             <div class="col-sm-8">
                 <!-- h3.innerHTML = post.getTitle() -->
                 <h3>{{ post.title }}</h3>
                 {% if app.user == post.author %}
-                    <a href="{{ path('modify_blog', {"id" : }) }}">
+                    <a href="{{ path('modify_blog', {"id" : post.id}) }}">
                         <button type="button" class="btn btn-secondary">Modify</button>
                     </a>
                     <button type="button" class="btn btn-danger">Delete</button>
@@ -121,6 +123,86 @@
         </div>
         <hr class="line">
         <!-- end -->
+        {% endfor %}
+
+
+    </div>
+
+    <!-- End of posts of the user -->
+
+    <!-- Beginning of posts of the user -->
+
+    <div id="recipes" class="container gallery">
+
+        <h1 class="my-4 text-center text-lg-left"><i class="fa fa-file-text-o"> </i>Recipes</h1>
+
+
+        <!-- select * from posts where author = @currentUser -->
+        <!-- foreach post -->
+        {% for recipe in recipes %}
+            <!-- begin -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- img.src = post.getImageRoot() -->
+                    <!-- img.alt = post.getTitle() -->
+                    <a href="{{ path('explore_recipe_details', {'id': recipe.id}) }}">
+                        <img class="img-fluid" src="{{ asset(recipe.image) }}" alt="{{ recipe.title }}"/>
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <!-- h3.innerHTML = post.getTitle() -->
+                    <h3>{{ recipe.title }}</h3>
+                    <p>{{ recipe.description }}</p>
+                    {% if app.user == recipe.author %}
+                        <a href="{{ path('modify_recipe', {"id" : recipe.id}) }}">
+                            <button type="button" class="btn btn-secondary">Modify</button>
+                        </a>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    {% endif %}
+                </div>
+            </div>
+            <hr class="line">
+            <!-- end -->
+        {% endfor %}
+
+
+    </div>
+
+    <!-- End of posts of the user -->
+
+    <!-- Beginning of posts of the user -->
+
+    <div id="products" class="container gallery">
+
+        <h1 class="my-4 text-center text-lg-left"><i class="fa fa-file-text-o"> </i>Recipes</h1>
+
+
+        <!-- select * from posts where author = @currentUser -->
+        <!-- foreach post -->
+        {% for product in products %}
+            <!-- begin -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- img.src = post.getImageRoot() -->
+                    <!-- img.alt = post.getTitle() -->
+                    <a href="{{ path('product_details', {'id': product.id}) }}">
+                        <img class="img-fluid" src="{{ asset(product.image) }}" alt="{{ product.title }}"/>
+                    </a>
+                </div>
+                <div class="col-sm-8">
+                    <!-- h3.innerHTML = post.getTitle() -->
+                    <h3>{{ product.title }}</h3>
+                    <p>{{ product.content }}</p>
+                    {% if app.user == product.author %}
+                        <a href="{{ path('modify_product', {"id" : product.id}) }}">
+                            <button type="button" class="btn btn-secondary">Modify</button>
+                        </a>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    {% endif %}
+                </div>
+            </div>
+            <hr class="line">
+            <!-- end -->
         {% endfor %}
 
 
