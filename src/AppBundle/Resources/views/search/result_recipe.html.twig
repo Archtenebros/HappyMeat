@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row card-deck">
+
+        <!-- DYNAMIC OBJECT: foreach recipe in allRecipes -->
+        {% for recipe in results %}
+            <!-- BEGIN -->
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <div class="card recipe-card">
+                    <!-- img.href = recipe.getImage() -->
+                    <a href="{{ path('explore_recipe_details', {"id": recipe.author.id}) }}">
+                        <img class="card-img-top" src="{{ asset(recipe.image) }}" alt="Chipotle Pulled Chicken Sandwiches">
+                    </a>
+                    <div class="card-body">
+                        <!-- h5.innerHTML = recipe.getTitle() -->
+                        <h5 class="card-title">{{ recipe.title }}</h5>
+                        <!-- p.innerHTML = recipe.getDescription() -->
+                        <p class="card-text text-justify">{{ recipe.description }}</p>
+                        {% if app.user == recipe.author %}
+                            <button type="button" class="btn btn-secondary">Modify</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <!-- END -->
+        {% endfor %}
+
+    </div>
+</div>

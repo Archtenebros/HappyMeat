@@ -22,10 +22,7 @@ class AnimalType extends ArticleType
         $builder->add('name', TextType::class)
                 ->add('age', NumberType::class)
                 ->add('weight', NumberType::class)
-                ->add('type', EntityType::class, array(
-                    'choice_label' => 'Animal Type',
-                    'class' => 'AppBundle\Entity\TypeAnimal',
-                ))
+                ->add('price', NumberType::class)
                 ->add('validate', SubmitType::class);
     }
 

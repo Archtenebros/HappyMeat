@@ -1,0 +1,32 @@
+<div class="container products">
+    <div class="row">
+        <!-- select * from products where owner = @currentUser -->
+        <!-- foreach product -->
+        {# @var product \AppBundle\Entity\Animal #}
+        {% for product in results %}
+        <!-- Begin -->
+        <div class="col-md-3 col-sm-6">
+            <!-- img.src = product.getImageRoot() -->
+            <img src="{{ asset(product.image) }}" class="img-fluid img-thumbnail"  alt="...">
+            <hr class="line">
+            <!-- h4.innerHTML = product.getName() -->
+            <h4 class="text-center">{{ product.name }}</h4>
+            <hr class="line">
+            <!-- p.innerHTML = product.getDescription() -->
+            <p>{{ product.content }}</p>
+            <hr class="line">
+            <div class="row">
+                <div class="col-md-5 col-sm-4">
+                    <!-- p.innerHTML = product.getPrice() -->
+                    <p class="price">$ {{ product.price }}</p>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <button class="btn btn-info right">ADD ITEM</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- End -->
+        {% endfor %}
+    </div>
+</div>

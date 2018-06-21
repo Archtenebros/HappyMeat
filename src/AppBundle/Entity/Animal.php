@@ -35,6 +35,13 @@ class Animal extends Article
     private $weight;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="price", type="integer")
+     */
+    private $price;
+
+    /**
      * @var TypeAnimal
      *
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\TypeAnimal")
@@ -143,5 +150,29 @@ class Animal extends Article
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     *
+     * @return Animal
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

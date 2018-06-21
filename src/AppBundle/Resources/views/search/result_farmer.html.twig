@@ -1,0 +1,24 @@
+<div class="row farmers">
+
+    <!-- DYNAMIC OBJECT: foreach farmer in farmers -->
+    {# @var farmer \AppBundle\Entity\Owner #}
+    {% for farmer in results %}
+        <!-- BEGIN -->
+
+        <div class="col-sm-6 col-lg-3 ">
+            <div class="row">
+                <!-- src of the image = farmer.getImg() -->
+                <div class="col-sm-11 offset-sm-1 farmer" style="background-image: url({{ asset(farmer.image) }})">
+                    <!-- h2.innerHTML = farmer.getName() -->
+                    <h2><span class="white-bg-farmer">{{ farmer.name|upper }}</span></h2>
+                    <!-- a.href = farmer.getName() + -->
+                    <a class="btn btn-success" href="{{ path('profile_details', {"id": farmer.id}) }}"><i class="fa fa-user"></i>Profile</a>
+                    <!-- a.href = farmer.getEmail() -->
+                    <a class="btn btn-info" href="mailto:{{ farmer.email }}"><i class="fa fa-envelope"></i>E-mail</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- END -->
+    {% endfor %}
+</div>

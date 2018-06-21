@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProfileController extends Controller
 {
@@ -29,8 +30,14 @@ class ProfileController extends Controller
 
     public function showAction($id)
     {
+        $user = $this->getDoctrine()->getRepository("AppBundle:Owner")->find($id);
+        if($user == null)
+            return new Response("User not found", 404);
         return $this->render('@App/profile/show.html.twig', array(
-            "owner" => $this->getDoctrine()->getRepository("AppBundle:Owner")->find($id),
+            "owner" => $user,
+            "posts" => $this->getDoctrine()->getRepository("AppBundle:Blog")->findBy(array('author' => $user->getId())),
+            "recipes" => $this->getDoctrine()->getRepository('AppBundle:Recipe')->findBy(array('author' => $user->getId())),
+            "products" => $this->getDoctrine()->getRepository('AppBundle:Animal')->findBy(array('author' => $user->getId()))
         ));
     }
 

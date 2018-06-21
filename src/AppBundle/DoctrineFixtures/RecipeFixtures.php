@@ -23,6 +23,7 @@ class RecipeFixtures extends Fixture implements OrderedFixtureInterface
         $recipe1->setAuthor($this->getReference('jimmy'));
         $recipe1->setDescription("Preparation time: 5 minutes - cook time: 30 minutes - ready in: 35 minutes - difficulty level: easy");
         $recipe1->setTitle('Barbecue dip');
+        $recipe1->setImage('assets/img/article/recipe1.jpg');
         $recipe1->setContent(<<<HTML
 Ingredients:
 1/4 onion
@@ -51,6 +52,7 @@ HTML
         $recipe2->setAuthor($this->getReference('melissa'));
         $recipe2->setDescription("Preparation time: 20 minutes - cook time: 4h - ready in: 16h 20minutes - difficulty level: middle");
         $recipe2->setTitle('Spare rips');
+        $recipe2->setImage('assets/img/article/recipe2.jpg');
         $recipe2->setContent(<<<HTML
 Ingredients:
 1 cup brown sugar
@@ -82,6 +84,7 @@ HTML
         $recipe3->setAuthor($this->getReference('melissa'));
         $recipe3->setDescription("Preparation time: 20 minutes - cook time: 15 minutes - ready in: 35 minutes - difficulty level: easy");
         $recipe3->setTitle('Caesar salad');
+        $recipe3->setImage('assets/img/article/recipe3.jpg');
         $recipe3->setContent(<<<HTML
 Ingredients:
 6 cloves garlic
