@@ -4,11 +4,17 @@
 
 body{
     width: 100%;
+    overflow-x: hidden;
 }
 
 @font-face {
     font-family: fontTitle;
     src: url(../font/Jalisco.ttf);
+}
+
+.font-NewCycle{
+    font-family: News Cycle;
+
 }
 
 .title{
@@ -24,6 +30,11 @@ body{
 .title-xs{
   font-family: fontTitle;
   font-size: 46px;
+}
+
+.no-decoration, .no-decoration:hover, .no-decoration:focus{
+    color: black;
+    text-decoration: none;
 }
 
 .red {
@@ -192,15 +203,6 @@ h2 {
 
 .home-buttons button{
   margin-bottom:1rem;
-}
-
-article {
-  font-family: 'Oswald', sans-serif;
-}
-
-article p {
-  font-family: 'Open Sans Condensed', sans-serif;
-  text-align: justify;
 }
 
 .home-carousel-caption{

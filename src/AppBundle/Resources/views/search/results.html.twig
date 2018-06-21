@@ -15,10 +15,7 @@
             {{ form(form) }}
         </div>
     </div>
-    <div class="row">
-        <div class="col-10">
             {% if results is null %}
-                Make a search !
             {% elseif results is empty %}
                 No results !
             {% else %}
@@ -32,8 +29,6 @@
                     {% include '@App/search/result_recipe.html.twig' %}
                 {% endif %}
             {% endif %}
-        </div>
-    </div>
 {% endblock %}
 
 {% block javascripts %}

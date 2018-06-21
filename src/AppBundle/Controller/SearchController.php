@@ -29,7 +29,7 @@ class SearchController extends Controller
                     ->add('search', SubmitType::class)
                     ->getForm();
         $form->handleRequest($request);
-        $results = null;
+        $results = $this->getDoctrine()->getRepository("AppBundle:Owner")->findAll();
         $typeSearch = null;
 
         if($form->isSubmitted()&&$form->isValid())

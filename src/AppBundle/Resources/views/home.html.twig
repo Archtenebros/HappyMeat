@@ -39,13 +39,13 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="assets/img/happycow.jpg" alt="Third slide">
+                        <img class="d-block w-100" src="assets/img/carousel3.jpg" alt="Third slide">
                         <div class="carousel-caption d-none d-block home-carousel-caption">
                         </div>
                     </div>
 
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="assets/img/carousel3.jpg" alt="Fourth slide">
+                        <img class="d-block w-100" src="assets/img/carousel4.jpg" alt="Fourth slide">
                         <div class="carousel-caption d-none d-block home-carousel-caption">
                         </div>
                     </div>
@@ -80,14 +80,48 @@
     <div class="jumbotron">
         <div class="container">
             <h1 class="title">What we stand for</h1>
-            <h4>Meet Happy Meat is the first transaction and communication platform to link food lovers and fair farmers in an easy and transparent way.
+            <h4 class="font-NewCycle">Meet Happy Meat is the first transaction and communication platform to link food lovers and fair farmers in an easy and transparent way.
                 We stand for transparency and fairness.<br><br>
                 We enable the future of organic online shopping.</h4>
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container">
+        <div class="row card-deck">
 
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <a href="{{ path('blog') }}">
+                    <div class="card recipe-card">
+                        <img class="card-img-top" src="{{ asset('assets/img/jumbotron-blog.jpg') }}" alt="Blog">
+                        <div class="card-body">
+                            <h5 class="card-title title-little no-decoration">Blog</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <a href="{{ path('blog') }}">
+                    <div class="card recipe-card">
+                        <img class="card-img-top" src="{{ asset('assets/img/jumbotron-farmer.jpg') }}" alt="Blog">
+                        <div class="card-body">
+                            <h5 class="card-title title-little no-decoration">Farmers</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
+                <a href="{{ path('blog') }}">
+                    <div class="card recipe-card">
+                        <img class="card-img-top" src="{{ asset('assets/img/jumbotron-recipes.jpg') }}" alt="Blog">
+                        <div class="card-body">
+                            <h5 class="card-title title-little no-decoration">Eat Happy Meet</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+        </div>
     </div>
 
     <!-- end of the main content -->

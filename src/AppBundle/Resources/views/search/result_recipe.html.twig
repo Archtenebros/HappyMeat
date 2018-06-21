@@ -7,7 +7,7 @@
             <div class="col-lg-4 col-md-6 offset-sm-2 offset-md-0 col-xs-6 offset-xs-3 text-center">
                 <div class="card recipe-card">
                     <!-- img.href = recipe.getImage() -->
-                    <a href="{{ path('explore_recipe_details', {"id": recipe.author.id}) }}">
+                    <a href="{{ path('explore_recipe_details', {"id": recipe.id}) }}">
                         <img class="card-img-top" src="{{ asset(recipe.image) }}" alt="Chipotle Pulled Chicken Sandwiches">
                     </a>
                     <div class="card-body">

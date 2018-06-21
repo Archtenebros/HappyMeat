@@ -20,6 +20,7 @@ class BlogFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $blog = new Blog();
+        $blog->setImage("assets/img/new1.jpg");
         $blog->setTitle("Slow your food down");
         $blog->setAuthor($this->getReference("melissa"));
         $blog->setDate(new \DateTime());
@@ -31,20 +32,26 @@ Yet our cooking equipment hasn’t changed much in the past 60 years, nor is it 
 HTML
 );
         $blog1 = new Blog();
-        $blog1->setTitle("Forgotten but amazing pic breeds");
-        $blog1->setAuthor($this->getReference("melissa"));
+        $blog1->setImage("assets/img/new2.jpg");
+        $blog1->setTitle("What are the environmental benefits of organic agriculture ?");
+        $blog1->setAuthor($this->getReference("arthur"));
         $blog1->setDate(new \DateTime());
         $blog1->setContent(<<<HTML
-How Peter got into rearing Ark of Taste pig breeds and why he chose these particular breeds:
-Peter is a self-proclaimed ‘man on a mission’. Farming is his business and his passion, and while he works very heard to make his business a success he is also intent on promoting a system of farming to the public that focuses high welfare animals where quality is the most important factor, not quantity. Peter was born to a family of retailers, food manufacturers and farmers and so has had a view of the ‘food system’ in it’s entirety. From the age of 17 he took over the family market stalls and gradually grew the business selling bacon, sausages and other farm related products. Peter, along with  his wife Christine and daughter Julie, has been running the farm for over 20 years now, rearing wild boar, rare breed pigs and poultry, all of which are free range. For Peter rare breed pigs are the best to eat with perfect, flavoursome fat, and beautiful, tender meat, and he is keen to not only promote their wonderful flavour but also their qualities as individual breeds. Peter is a busy man splitting his time between the farm, driving his produce down to London and selling it, as well as promoting quality food and food production to the media and the public. In his own words he is proud to continue the ‘farm to fork’ tradition his family have always stuck to and would love nothing more than to see high welfare, lovingly produced meat back on Britain’s plates.
-Products that Peter is offering:
-Peter offers a range of Ark of Taste rare breed pig products from sausages to bacon as well as various cuts and chops. For more information visit the website or contact the farm.
+The UK’s organic pig herd nearly doubled in 2017, new figures from Defra show.
+The number of pigs farmed organically in the UK increased from 31,000 to almost 59,000, the largest proportional increase across all sectors, albeit from a very low base
+This included just over 5,000 breeding sows and 37,0000 fattening pigs. More than 90% of organic pigs were farmed in England. The total number of organic pigs recorded at the end of June 2017, 4,969, represented 1.2% of the UK pig herd at the time.
+The figures showed the first increase in organic farming across the agricultural sector in six years, with the number of producers farming organically rising by almost 2% in 2017. The uplift takes the amount of organic land in the UK to 517,000ha, also up nearly 2% on the previous year.
+There are now 6600 organic operators in the UK. Of those, livestock and mixed producers dominate, with 64% of UK organic land classified as grassland.
+Organic sheep production increased by 5.5% to 887,000 animals, while organic poultry numbers increased by 8.5% to just over 3m. In the arable sector, 7% of UK organic land is used to grow cereals, with 37,400 ha in organic cereal production.
+Organic certifier OF&G, which certifies more than half of the UK’s organic land, said the increase across agriculture showed that farmers were listening to consumer demand and acting on market interest.
+“What’s more, more shoppers than ever are looking to buy organic food, and with the report showing a 29.4% increase in UK land currently under organic conversion, it suggests more land will become fully organic in the coming years, which is hugely positive for the sector,” said Roger Kerr, OF&G chief executive.
 HTML
         );
 
         $blog2 = new Blog();
-        $blog2->setTitle("5 reasons for organic farming");
-        $blog2->setAuthor($this->getReference("cleo"));
+        $blog2->setImage("assets/img/new5.jpg");
+        $blog2->setTitle("The storecupboard organic essentials you need");
+        $blog2->setAuthor($this->getReference("jimmy"));
         $blog2->setDate(new \DateTime());
         $blog2->setContent(<<<HTML
 Organic produce has become increasingly popular in recent years because people are discovering the numerous benefits it offers.  This figure is likely to keep growing, but why are people moving towards organic? Here are some of the key advantages of organic farming.
@@ -63,6 +70,7 @@ HTML
         );
 
         $blog3 = new Blog();
+        $blog3->setImage("assets/img/new4.jpg");
         $blog3->setTitle("UK organic pig numbers almost doubled in 2017");
         $blog3->setAuthor($this->getReference("cleo"));
         $blog3->setDate(new \DateTime());
@@ -78,23 +86,11 @@ Organic certifier OF&G, which certifies more than half of the UK’s organic lan
 HTML
         );
 
-        $blog4 = new Blog();
-        $blog4->setTitle("What are the environmental benefits of organic agriculture?");
-        $blog4->setAuthor($this->getReference("yves"));
-        $blog4->setDate(new \DateTime());
-        $blog4->setContent(<<<HTML
-Sustainability over the long term. Many changes observed in the environment are long term, occurring slowly over time. Organic agriculture considers the medium- and long-term effect of agricultural interventions on the agro-ecosystem. It aims to produce food while establishing an ecological balance to prevent soil fertility or pest problems. Organic agriculture takes a proactive approach as opposed to treating problems after they emerge.
-Soil. Soil building practices such as crop rotations, inter-cropping, symbiotic associations, cover crops, organic fertilizers and minimum tillage are central to organic practices. These encourage soil fauna and flora, improving soil formation and structure and creating more stable systems. In turn, nutrient and energy cycling is increased and the retentive abilities of the soil for nutrients and water are enhanced, compensating for the non-use of mineral fertilizers. Such management techniques also play an important role in soil erosion control. The length of time that the soil is exposed to erosive forces is decreased, soil biodiversity is increased, and nutrient losses are reduced, helping to maintain and enhance soil productivity. Crop export of nutrients is usually compensated by farm-derived renewable resources but it is sometimes necessary to supplement organic soils with potassium, phosphate, calcium, magnesium and trace elements from external sources.
-Water. In many agriculture areas, pollution of groundwater courses with synthetic fertilizers and pesticides is a major problem. As the use of these is prohibited in organic agriculture, they are replaced by organic fertilizers (e.g. compost, animal manure, green manure) and through the use of greater biodiversity (in terms of species cultivated and permanent vegetation), enhancing soil structure and water infiltration. Well managed organic systems with better nutrient retentive abilities, greatly reduce the risk of groundwater pollution. In some areas where pollution is a real problem, conversion to organic agriculture is highly encouraged as a restorative measure (e.g. by the Governments of France and Germany).
-Air and climate change. Organic agriculture reduces non-renewable energy use by decreasing agrochemical needs (these require high quantities of fossil fuel to be produced). Organic agriculture contributes to mitigating the greenhouse effect and global warming through its ability to sequester carbon in the soil. Many management practices used by organic agriculture (e.g. minimum tillage, returning crop residues to the soil, the use of cover crops and rotations, and the greater integration of nitrogen-fixing legumes), increase the return of carbon to the soil, raising productivity and favouring carbon storage. A number of studies revealed that soil organic carbon contents under organic farming are considerably higher. The more organic carbon is retained in the soil, the more the mitigation potential of agriculture against climate change is higher.  However, there is much research needed in this field, yet. There is a lack of data on soil organic carbon for developing countries, with no farm system comparison data from Africa and Latin America, and only limited data on soil organic carbon stocks, which is crucial for determining carbon sequestration rates for farming practices.
-HTML
-        );
 
         $manager->persist($blog);
         $manager->persist($blog1);
         $manager->persist($blog2);
         $manager->persist($blog3);
-        $manager->persist($blog4);
 
         $manager->flush();
     }

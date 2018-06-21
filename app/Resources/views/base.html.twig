@@ -87,8 +87,8 @@
                 <a href="{{ path('basket') }}" id="basket"><span class="fa fa-shopping-basket"></span>BASKET : 0.00 €</a>
             </div>
         {% else %}
-            <div class="col-sm-5">
-                <ul class="navbar-nav ml-auto">
+            <div class="col-sm-12">
+                <ul class="navbar-nav ml-auto login-nav">
                     <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_security_login') }}">SIGN IN</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_registration_register') }}">SIGN UP</a></li>
                 </ul>
@@ -98,12 +98,8 @@
 </nav> <!-- End of Navbar -->
 
 
-
-        <div class="row">
-            <div class="col-12">
                 {% block body %}{% endblock %}
-            </div>
-        </div>
+
         {% block javascripts %}
         {% endblock %}
 

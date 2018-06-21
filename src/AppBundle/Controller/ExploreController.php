@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Recipe;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class ExploreController extends Controller
 {

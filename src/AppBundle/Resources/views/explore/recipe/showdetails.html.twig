@@ -10,6 +10,23 @@
 
 {% block body %}
     {{ parent() }}
+    <div class="container">
+        <img class="img-fluid" src="{{ asset(recipe.image) }}" alt="{{ recipe.title }}">
+        <h1 class="title text-center">{{ recipe.title }}</h1>
+        <h5 class="text-justify">{{ recipe.description }}</h5>
+        <hr class="line">
+        <h5 class="text-justify">{{ recipe.content }}</h5>
+        <div class="post-preview">
+            <h5 class="post-meta">Posted by {{ recipe.author }} on <span>{{ recipe.date.format("F jS, Y") }}</span></h5>
+            {% if app.user == recipe.author %}
+                <a href="{{ path("edit_recipe", {"id": recipe.id}) }}">
+                    <button type="button" class="btn btn-secondary">Modify</button>
+                </a>
+                <button type="button" class="btn btn-danger">Delete</button>
+            {% endif %}
+        </div>
+
+    </div>
 {% endblock %}
 
 {% block javascripts %}
