@@ -100,25 +100,28 @@
 
         <!-- select * from posts where author = @currentUser -->
         <!-- foreach post -->
+        {% for post in posts %}
         <!-- begin -->
         <div class="row">
             <div class="col-sm-4">
                 <!-- img.src = post.getImageRoot() -->
                 <!-- img.alt = post.getTitle() -->
-                <img class="img-fluid" src="assets/img/new5.jpg" alt="Organic essentials you need"/>
+                <img class="img-fluid" src="{{ asset(post.image) }}" alt="{{ post.title }}"/>
             </div>
             <div class="col-sm-8">
                 <!-- h3.innerHTML = post.getTitle() -->
-                <h3>The storecupboard organic essentials you need</h3>
-                <!-- p.innerHTML = post.getDescription() -->
-                <p>So-called ‘grocery’ organic foods are the staples you keep in your cupboard, and they're on the rise.
-                    Julia Platt Leonard finds out how to make your kitchen more ethical.</p>
-                <button type="button" class="btn btn-secondary">Modify</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <h3>{{ post.title }}</h3>
+                {% if app.user == post.author %}
+                    <a href="{{ path('modify_blog', {"id" : }) }}">
+                        <button type="button" class="btn btn-secondary">Modify</button>
+                    </a>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                {% endif %}
             </div>
         </div>
         <hr class="line">
         <!-- end -->
+        {% endfor %}
 
 
     </div>
